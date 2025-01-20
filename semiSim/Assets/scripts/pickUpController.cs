@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class pickUpController : MonoBehaviour
@@ -15,6 +16,12 @@ public class pickUpController : MonoBehaviour
      [SerializeField] private float rotationSpeed = 100.0f;
 
      public bool isRotating { get; private set; } = false;
+     public TextMeshProUGUI popupText;
+
+     private void Start()
+     {
+          popupText.gameObject.SetActive(false);
+     }
 
      private void Update()
      {
@@ -43,6 +50,12 @@ public class pickUpController : MonoBehaviour
           {
                isRotating = false;
                if (heldObj != null) MoveObject();
+          }
+
+          // Only check when the "E" key is pressed
+          if (Input.GetKeyDown(KeyCode.E))
+          {
+               TryEquipHeldObject();
           }
      }
 
@@ -88,6 +101,33 @@ public class pickUpController : MonoBehaviour
           heldObj.transform.Rotate(Vector3.up, -mouseX, Space.World);
           heldObj.transform.Rotate(Vector3.right, mouseY, Space.World);
      }
+
+     void TryEquipHeldObject()
+     {
+          if (heldObj != null && heldObj.CompareTag("equip"))
+          {
+               EquipObject();
+          }
+     }
+
+     void EquipObject()
+     {
+          Debug.Log("The object has been equipped.");
+
+          popupText.gameObject.SetActive(true);
+
+          StartCoroutine(HidePopupTextAfterDelay(3f));
+
+          heldObj.SetActive(false);
+          heldObj = null;
+     }
+
+     IEnumerator HidePopupTextAfterDelay(float delay)
+     {
+          yield return new WaitForSeconds(delay);
+          popupText.gameObject.SetActive(false);
+     }
+
 
      public bool IsRotatingObject()
      {
