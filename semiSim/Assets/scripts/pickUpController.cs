@@ -116,6 +116,13 @@ public class pickUpController : MonoBehaviour
 
           popupText.gameObject.SetActive(true);
 
+
+          equipManager equipManager = Object.FindFirstObjectByType<equipManager>();
+          if (equipManager != null)
+          {
+               equipManager.HandleEquip(heldObj);
+          }
+
           StartCoroutine(HidePopupTextAfterDelay(3f));
 
           heldObj.SetActive(false);
