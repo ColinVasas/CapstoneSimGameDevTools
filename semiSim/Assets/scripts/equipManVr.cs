@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.InputSystem;
 
-public class equipManager : MonoBehaviour
+public class equipManVr : MonoBehaviour
 {
 
      public GameObject hairNet; 
@@ -18,6 +21,31 @@ public class equipManager : MonoBehaviour
      public float fadeDuration = .5f;
      public float displayDuration = 1.5f;
 
+     private InputAction lCXAction;
+     private InputAction rCAAction;
+
+     public InputActionAsset inputActions;
+
+
+     private void Awake()
+     {
+
+          lCXAction = inputActions.FindAction("LeftController/Trigger");
+          rCAAction = inputActions.FindAction("RightController/Trigger");
+
+          lCXAction.Enable();
+          rCAAction.Enable();
+     }
+
+     private void Update()
+     {
+          
+          if (IsButtonPressed(lCXAction) || IsButtonPressed(rCAAction))
+          {
+               CheckAndEquip();
+          }
+     }
+
      private void Start()
      {
           hairNet.tag = "equip";
@@ -28,7 +56,34 @@ public class equipManager : MonoBehaviour
           boots.tag = "Untagged";
           gloves.tag = "Untagged";
 
+     }
 
+     private bool IsButtonPressed(InputAction buttonAction)
+     {
+
+          return buttonAction.ReadValue<float>() > 0.5f;
+     }
+
+
+     private void CheckAndEquip()
+     {
+          GameObject currentEquip = GetCurrentEquipItem();
+          if (currentEquip != null)
+          {
+               HandleEquip(currentEquip);
+          }
+     }
+
+     private GameObject GetCurrentEquipItem()
+     {
+          if (hairNet.CompareTag("equip")) return hairNet;
+          if (faceMask.CompareTag("equip")) return faceMask;
+          if (cleanHood.CompareTag("equip")) return cleanHood;
+          if (goggles.CompareTag("equip")) return goggles;
+          if (bunnySuit.CompareTag("equip")) return bunnySuit;
+          if (boots.CompareTag("equip")) return boots;
+          if (gloves.CompareTag("equip")) return gloves;
+          return null;
      }
 
      public void HandleEquip(GameObject equippedObject)
