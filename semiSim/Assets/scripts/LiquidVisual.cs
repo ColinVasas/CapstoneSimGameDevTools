@@ -13,7 +13,7 @@ public class LiquidVisual : MonoBehaviour
     private Color waterColor = Color.blue;
     private Color acidColor = Color.green;
     private Color hclColor = Color.red;
-    private Color defaultColor = Color.white; // Default color if no liquid is present
+    private Color mixedColor = Color.white;
 
     private void Start()
     {
@@ -43,7 +43,6 @@ public class LiquidVisual : MonoBehaviour
 
     void UpdateLiquidColor()
     {
-        Color mixedColor = defaultColor;
         float totalAmount = GetTotalLiquidAmount();
         List<Color> validLiquids = new List<Color>();
 
@@ -104,6 +103,10 @@ public class LiquidVisual : MonoBehaviour
             mixedColor += color;
         }
 
+        return mixedColor;
+    }
+    public Color GetColor()
+    {
         return mixedColor;
     }
 }

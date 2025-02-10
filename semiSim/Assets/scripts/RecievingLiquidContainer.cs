@@ -7,6 +7,7 @@ public class RecievingLiquidContainer : MonoBehaviour
 
     public void ReceiveLiquid(Liquid newLiquid)
     {
+        Debug.Log("Recieved: " + newLiquid);
         if (liquids.ContainsKey(newLiquid.type))
         {
             liquids[newLiquid.type].amount += newLiquid.amount; // Add to existing liquid amount
@@ -18,10 +19,13 @@ public class RecievingLiquidContainer : MonoBehaviour
     }
     public float GetLiquidLevel()
     {
+
         float totalAmount = 0;
         foreach (var liquid in liquids) {
             totalAmount += liquid.Value.amount;
         }
+        Debug.Log("total liquid amount: " + totalAmount);
+
         return totalAmount;
     }
 }
