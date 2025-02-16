@@ -5,11 +5,12 @@ using TMPro;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using System.Xml.Serialization;
 
 public class equipManVr : MonoBehaviour
 {
-
-     public GameObject hairNet; 
+     public GameObject hairNet;
      public GameObject faceMask;
      public GameObject cleanHood;
      public GameObject goggles;
@@ -17,32 +18,22 @@ public class equipManVr : MonoBehaviour
      public GameObject boots;
      public GameObject gloves;
 
+     public GameObject trigger;
+
      public TextMeshProUGUI equipText;
      public float fadeDuration = .5f;
      public float displayDuration = 1.5f;
 
-     private InputAction lCXAction;
-     private InputAction rCAAction;
+     public InputActionReference lC;
+     public InputActionReference rC;
 
-     public InputActionAsset inputActions;
-
-
-     private void Awake()
-     {
-
-          lCXAction = inputActions.FindAction("LeftController/Trigger");
-          rCAAction = inputActions.FindAction("RightController/Trigger");
-
-          lCXAction.Enable();
-          rCAAction.Enable();
-     }
+     private XRGrabInteractable currentObj;
 
      private void Update()
      {
-          
-          if (IsButtonPressed(lCXAction) || IsButtonPressed(rCAAction))
+          if (currentObj != null && (IsButtonPressed(lC) || IsButtonPressed(rC)))
           {
-               CheckAndEquip();
+               HandleEquip();
           }
      }
 
@@ -55,81 +46,56 @@ public class equipManVr : MonoBehaviour
           bunnySuit.tag = "Untagged";
           boots.tag = "Untagged";
           gloves.tag = "Untagged";
-
      }
 
      private bool IsButtonPressed(InputAction buttonAction)
      {
-
           return buttonAction.ReadValue<float>() > 0.5f;
      }
 
-
-     private void CheckAndEquip()
+     public void PickedUp(GameObject obj)
      {
-          GameObject currentEquip = GetCurrentEquipItem();
-          if (currentEquip != null)
-          {
-               HandleEquip(currentEquip);
-          }
+          currentObj = obj.GetComponent<XRGrabInteractable>();
      }
 
-     private GameObject GetCurrentEquipItem()
+     public void Dropped()
      {
-          if (hairNet.CompareTag("equip")) return hairNet;
-          if (faceMask.CompareTag("equip")) return faceMask;
-          if (cleanHood.CompareTag("equip")) return cleanHood;
-          if (goggles.CompareTag("equip")) return goggles;
-          if (bunnySuit.CompareTag("equip")) return bunnySuit;
-          if (boots.CompareTag("equip")) return boots;
-          if (gloves.CompareTag("equip")) return gloves;
-          return null;
+          currentObj = null;
      }
 
-     public void HandleEquip(GameObject equippedObject)
+     private void HandleEquip()
      {
-          if (!equippedObject.CompareTag("equip")) return; 
+          if (currentObj == null || !currentObj.CompareTag("equip")) return;
 
-          switch (equippedObject)
-          {
-               case var obj when obj == hairNet:
-                    EquipItem(hairNet, faceMask, "HairNet Equipped!");
-                    break;
+          GameObject equippedObject = currentObj.gameObject;
 
-               case var obj when obj == faceMask:
-                    EquipItem(faceMask, cleanHood, "FaceMask Equipped!");
-                    break;
-
-               case var obj when obj == cleanHood:
-                    EquipItem(cleanHood, goggles, "CleanHood Equipped!");
-                    break;
-
-               case var obj when obj == goggles:
-                    EquipItem(goggles, bunnySuit, "Goggles Equipped!");
-                    break;
-
-               case var obj when obj == bunnySuit:
-                    EquipItem(bunnySuit, boots, "BunnySuit Equipped!");
-                    break;
-
-               case var obj when obj == boots:
-                    EquipItem(boots, gloves, "Boots Equipped!");
-                    break;
-
-               case var obj when obj == gloves:
-                    EquipItem(gloves, null, "Gloves Equipped!");
-                    break;
-
-               default:
-                    Debug.Log("Invalid equipment sequence.");
-                    break;
-          }
+          if (equippedObject == hairNet)
+               EquipItem(hairNet, faceMask, "HairNet Equipped!");
+          else if (equippedObject == faceMask)
+               EquipItem(faceMask, cleanHood, "FaceMask Equipped!");
+          else if (equippedObject == cleanHood)
+               EquipItem(cleanHood, goggles, "CleanHood Equipped!");
+          else if (equippedObject == goggles)
+               EquipItem(goggles, bunnySuit, "Goggles Equipped!");
+          else if (equippedObject == bunnySuit)
+               EquipItem(bunnySuit, boots, "BunnySuit Equipped!");
+          else if (equippedObject == boots)
+               EquipItem(boots, gloves, "Boots Equipped!");
+          else if (equippedObject == gloves)
+               EquipItem(gloves, null, "Gloves Equipped!");
      }
 
      private void EquipItem(GameObject current, GameObject next, string message)
      {
           current.SetActive(false);
-          if (next != null) next.tag = "equip";
+          if (next != null)
+          {
+               next.tag = "equip";
+          }
+          else
+          {
+               trigger.SetActive(true);
+          }
           StartCoroutine(ShowEquipText(message));
      }
 
@@ -156,8 +122,7 @@ public class equipManVr : MonoBehaviour
                yield return null;
           }
 
-          color.a = endAlpha; 
+          color.a = endAlpha;
           equipText.color = color;
      }
 }
-

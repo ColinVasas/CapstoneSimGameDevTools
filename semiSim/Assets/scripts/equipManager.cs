@@ -14,6 +14,8 @@ public class equipManager : MonoBehaviour
      public GameObject boots;
      public GameObject gloves;
 
+     public GameObject trigger;
+
      public TextMeshProUGUI equipText;
      public float fadeDuration = .5f;
      public float displayDuration = 1.5f;
@@ -28,7 +30,7 @@ public class equipManager : MonoBehaviour
           boots.tag = "Untagged";
           gloves.tag = "Untagged";
 
-
+          trigger.SetActive(false);
      }
 
      public void HandleEquip(GameObject equippedObject)
@@ -62,6 +64,7 @@ public class equipManager : MonoBehaviour
                     break;
 
                case var obj when obj == gloves:
+                    trigger.SetActive(true);
                     EquipItem(gloves, null, "Gloves Equipped!");
                     break;
 
