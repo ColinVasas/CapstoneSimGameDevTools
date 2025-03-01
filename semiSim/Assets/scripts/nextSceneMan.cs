@@ -8,6 +8,7 @@ public class nextSceneMan : MonoBehaviour
      public CanvasGroup fadeCanvas;
      public float fadeDuration = 1.0f;
 
+
      private void OnTriggerEnter(Collider other)
      {
           Debug.Log($"Trigger entered by: {other.gameObject.name}, Tag: {other.gameObject.tag}");
