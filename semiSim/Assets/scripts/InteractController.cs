@@ -37,5 +37,26 @@ public class InteractController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+            {
+                Interactable interactable = hit.transform.GetComponent<Interactable>();
+                if(interactable != null)
+                {
+                    interactable.Interact();
+                    // if(pickUpController.heldObj != null)
+                    // {
+                    //     if(pickUpController.heldObj.CompareTag(chuck)) {
+                    //         interactable.ActivateChuck();
+                    //     }
+                    //     if(pickUpController.heldObj.CompareTag(wafer)) {
+                    //         interactable.ActivateWafer();
+                    //     }
+                    // }
+                }
+            }
+        }
     }
 }
