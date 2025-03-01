@@ -29,6 +29,10 @@ public class equipManVr : MonoBehaviour
 
      private XRGrabInteractable currentObj;
 
+     public GameObject[] textObjects;  
+     private int currentTextIndex = 0;
+
+
      private void Update()
      {
           if (currentObj != null && (IsButtonPressed(lC) || IsButtonPressed(rC)))
@@ -39,6 +43,11 @@ public class equipManVr : MonoBehaviour
 
      private void Start()
      {
+          foreach (GameObject textObject in textObjects)
+          {
+               textObject.SetActive(false);
+          }
+
           hairNet.tag = "equip";
           faceMask.tag = "Untagged";
           cleanHood.tag = "Untagged";
@@ -96,33 +105,37 @@ public class equipManVr : MonoBehaviour
           {
                trigger.SetActive(true);
           }
-          StartCoroutine(ShowEquipText(message));
+          if (currentTextIndex < textObjects.Length)
+          {
+               StartCoroutine(DisplayTextSequence(textObjects[currentTextIndex]));
+               currentTextIndex++;
+          }
      }
 
-     private IEnumerator ShowEquipText(string message)
+     private IEnumerator DisplayTextSequence(GameObject textObject)
      {
-          equipText.text = message;
-          equipText.gameObject.SetActive(true);
-          yield return StartCoroutine(FadeText(0f, 1f, fadeDuration));
+          textObject.SetActive(true);
+          yield return StartCoroutine(FadeText(textObject, 0f, 1f, fadeDuration));
           yield return new WaitForSeconds(displayDuration);
-          yield return StartCoroutine(FadeText(1f, 0f, fadeDuration));
-          equipText.gameObject.SetActive(false);
+          yield return StartCoroutine(FadeText(textObject, 1f, 0f, fadeDuration));
+          textObject.SetActive(false);
      }
 
-     private IEnumerator FadeText(float startAlpha, float endAlpha, float duration)
+     private IEnumerator FadeText(GameObject textObject, float startAlpha, float endAlpha, float duration)
      {
           float elapsed = 0f;
-          Color color = equipText.color;
+          TextMeshProUGUI textComponent = textObject.GetComponent<TextMeshProUGUI>();
+          Color color = textComponent.color;
 
           while (elapsed < duration)
           {
                elapsed += Time.deltaTime;
                color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
-               equipText.color = color;
+               textComponent.color = color;
                yield return null;
           }
 
           color.a = endAlpha;
-          equipText.color = color;
+          textComponent.color = color;
      }
 }
