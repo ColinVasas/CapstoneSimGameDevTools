@@ -504,7 +504,6 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   rotationSpeed: 500
-  popupText: {fileID: 1427616647}
 --- !u!114 &156195188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,8 +3176,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242bdcb671c1a9f4697d446a86d20607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstObject: {fileID: 723614226}
-  secondObject: {fileID: 1849707447}
+  hairNet: {fileID: 0}
+  faceMask: {fileID: 0}
+  cleanHood: {fileID: 0}
+  goggles: {fileID: 0}
+  bunnySuit: {fileID: 0}
+  boots: {fileID: 0}
+  gloves: {fileID: 0}
+  trigger: {fileID: 0}
+  equipText: {fileID: 0}
+  fadeDuration: 0.5
+  displayDuration: 1.5
 --- !u!1 &1351065769
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,7 +3312,7 @@ GameObject:
   - component: {fileID: 1375899275}
   m_Layer: 0
   m_Name: pickup Cube
-  m_TagString: equip
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3493,6 +3501,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupText: {fileID: 1673636328}
+  validTags:
+  - Player
+  - Interactable
+  zoneRenderer: {fileID: 1065128371}
+  triggerZoneColor1: {fileID: 2100000, guid: abe276858b080db41baa16aadbe0b672, type: 2}
+  triggerZoneColor2: {fileID: 2100000, guid: 139c5ac3516314616968227ef2c66633, type: 2}
 --- !u!1 &1427616646
 GameObject:
   m_ObjectHideFlags: 0
