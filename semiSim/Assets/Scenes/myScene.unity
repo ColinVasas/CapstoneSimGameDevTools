@@ -504,7 +504,6 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   rotationSpeed: 500
-  popupText: {fileID: 1427616647}
 --- !u!114 &156195188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,7 +2679,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1486289048}
@@ -3177,8 +3176,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242bdcb671c1a9f4697d446a86d20607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstObject: {fileID: 723614226}
-  secondObject: {fileID: 1849707447}
+  hairNet: {fileID: 0}
+  faceMask: {fileID: 0}
+  cleanHood: {fileID: 0}
+  goggles: {fileID: 0}
+  bunnySuit: {fileID: 0}
+  boots: {fileID: 0}
+  gloves: {fileID: 0}
+  trigger: {fileID: 0}
+  equipText: {fileID: 0}
+  fadeDuration: 0.5
+  displayDuration: 1.5
 --- !u!1 &1351065769
 GameObject:
   m_ObjectHideFlags: 0

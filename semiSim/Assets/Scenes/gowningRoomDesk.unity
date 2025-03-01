@@ -323,7 +323,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 1, g: 0.96538514, b: 0.8160377, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 200
   m_Range: 104.9
   m_SpotAngle: 179
@@ -1367,7 +1367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -550.54, y: -252.3511}
+  m_AnchoredPosition: {x: -550.54, y: -226.6}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &517981976
@@ -3578,16 +3578,6 @@ MonoBehaviour:
   gloves: {fileID: 1364594999}
   trigger: {fileID: 343196318}
   equipText: {fileID: 1427616647}
-  textObjects:
-  - {fileID: 40217744}
-  - {fileID: 1787587035}
-  - {fileID: 994341047}
-  - {fileID: 1343112523}
-  - {fileID: 906744147}
-  - {fileID: 1566674707}
-  - {fileID: 2140309091}
-  - {fileID: 871018792}
-  - {fileID: 1872790568}
   fadeDuration: 0.5
   displayDuration: 1.5
 --- !u!1 &1343112523
@@ -4630,6 +4620,7 @@ GameObject:
   - component: {fileID: 1565762017}
   - component: {fileID: 1565762016}
   - component: {fileID: 1565762020}
+  - component: {fileID: 1565762021}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4751,6 +4742,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeCanvas: {fileID: 90333983}
   fadeDuration: 1
+--- !u!114 &1565762021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565762015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbceeb2fb50e11488f17dbc5adfb41d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textDisplay: {fileID: 1427616647}
+  fadeDuration: 0.5
+  displayTime: 2
+  delayBetweenTexts: 0.5
 --- !u!1 &1566674707
 GameObject:
   m_ObjectHideFlags: 0
