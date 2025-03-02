@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TriggerZoneText : MonoBehaviour
 {
-    public TextMeshProUGUI popupText;
+    //public TextMeshProUGUI popupText;
     public List<string> validTags = new List<string> { "Player", "Interactable" }; // Add more tags as needed
 
     public Renderer zoneRenderer; // Assign the Renderer of the trigger zone
@@ -16,7 +16,7 @@ public class TriggerZoneText : MonoBehaviour
     private void Start()
     {
         // Ensure the text starts hidden
-        popupText.gameObject.SetActive(false);
+        //popupText.gameObject.SetActive(false);
 
         // Ensure the trigger zone starts with the red material
         if (zoneRenderer != null && triggerZoneColor1 != null)
@@ -30,7 +30,7 @@ public class TriggerZoneText : MonoBehaviour
         if (validTags.Contains(other.tag))
         {
             objectsInZone++;
-            popupText.gameObject.SetActive(true);
+            //popupText.gameObject.SetActive(true);
 
             // Change to green if at least one object is inside
             if (zoneRenderer != null && triggerZoneColor2 != null)
@@ -47,7 +47,7 @@ public class TriggerZoneText : MonoBehaviour
             objectsInZone = Mathf.Max(0, objectsInZone - 1);
             if (objectsInZone == 0)
             {
-                popupText.gameObject.SetActive(false);
+                //popupText.gameObject.SetActive(false);
 
                 // Change back to red when no objects remain
                 if (zoneRenderer != null && triggerZoneColor1 != null)
