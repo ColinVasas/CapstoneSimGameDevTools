@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class TriggerZoneText : MonoBehaviour
 {
     //public TextMeshProUGUI popupText;
-    public List<string> validTags = new List<string> { "Player", "Interactable" }; // Add more tags as needed
+    public List<string> validTags = new List<string> {}; // Add more tags as needed
 
     public Renderer zoneRenderer; // Assign the Renderer of the trigger zone
     public Material triggerZoneColor1; // Red material
@@ -31,7 +31,7 @@ public class TriggerZoneText : MonoBehaviour
         {
             objectsInZone++;
             //popupText.gameObject.SetActive(true);
-
+            Destroy(other.gameObject);
             // Change to green if at least one object is inside
             if (zoneRenderer != null && triggerZoneColor2 != null)
             {

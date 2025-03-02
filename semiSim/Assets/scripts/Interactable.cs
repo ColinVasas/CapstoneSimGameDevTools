@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public GameObject triggerZone;
     [SerializeField] private bool hasWafer = true;
     [SerializeField] private bool hasChuck = true;
     [SerializeField] private bool hasPMMA = true;
