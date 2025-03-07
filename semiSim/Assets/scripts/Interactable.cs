@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public GameObject lid;
     public GameObject triggerZoneChuck;
     public GameObject triggerZoneWafer;
     public GameObject triggerZonePMMA;
@@ -34,6 +35,7 @@ public class Interactable : MonoBehaviour
         {
             case SpinCoaterState.OpenSpinCoater:
                 Debug.Log("Spincoater opened");
+                lid.SetActive(false);
                 currentState = SpinCoaterState.PlaceChuck;
                 triggerZoneChuck.SetActive(true);
                 break;
