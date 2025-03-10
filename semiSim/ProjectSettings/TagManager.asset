@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - equip
+  - Wafer
   layers:
   - Default
   - TransparentFX
