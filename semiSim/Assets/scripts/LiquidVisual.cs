@@ -37,7 +37,7 @@ public class LiquidVisual : MonoBehaviour
         float fillPercent = Mathf.Clamp01(totalAmount / maxCapacity);
         float newY = Mathf.Lerp(minFillHeight, maxFillHeight, fillPercent);
 
-        liquidTransform.localScale = new Vector3(1, fillPercent, 1);
+        liquidTransform.localScale = new Vector3(1, fillPercent*maxFillHeight, 1);
         liquidTransform.localPosition = new Vector3(0, newY, 0);
     }
 
