@@ -81,10 +81,10 @@ public class PourableLiquidContainer : MonoBehaviour
 
         if (activeStream == null)
         {
+            SetStreamColor();
             activeStream = Instantiate(liquidStream, pourPoint.position, Quaternion.identity);
             activeStream.transform.SetParent(pourPoint);
         }
-        SetStreamColor();
 
         Pour();
     }
@@ -99,6 +99,7 @@ public class PourableLiquidContainer : MonoBehaviour
         {
             streamRenderer.material = PouringStreamMaterial;
         }
+        Debug.Log("Stream material was set to" + PouringStreamMaterial);
     }
 
     void Pour()
