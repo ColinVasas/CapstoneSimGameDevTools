@@ -6,9 +6,16 @@ public class Interactable : MonoBehaviour
     public GameObject triggerZoneChuck;
     public GameObject triggerZoneWafer;
     public GameObject triggerZonePMMA;
+    public GameObject triggerZoneEtc;
+    public Transform chuckLocation;
+    public GameObject chuck;
+    public Transform waferLocation;
+    public GameObject wafer;
+    private GameObject curWafer;
     [SerializeField] private bool hasWafer = true;
     [SerializeField] private bool hasChuck = true;
     [SerializeField] private bool hasPMMA = true;
+    [SerializeField] private bool done = false;
 
     private enum SpinCoaterState
     {
@@ -27,6 +34,7 @@ public class Interactable : MonoBehaviour
         triggerZoneChuck.SetActive(false);
         triggerZoneWafer.SetActive(false);
         triggerZonePMMA.SetActive(false);
+        triggerZoneEtc.SetActive(true);
     }
 
     public void Interact()
@@ -37,17 +45,19 @@ public class Interactable : MonoBehaviour
                 Debug.Log("Spincoater opened");
                 lid.SetActive(false);
                 currentState = SpinCoaterState.PlaceChuck;
+                triggerZoneEtc.SetActive(false);
                 triggerZoneChuck.SetActive(true);
                 break;
 
             case SpinCoaterState.PlaceChuck:
                 if(hasChuck)
                 {
-                    //place model animate here
                     Debug.Log("Chuck Placed");
                     currentState = SpinCoaterState.PlaceWafer;
                     triggerZoneWafer.SetActive(true);
                     triggerZoneChuck.SetActive(false);
+                    Quaternion cusRotation = Quaternion.Euler(90, 0, 0);
+                    Instantiate(chuck, chuckLocation.position, cusRotation);
                 }
                 else
                 {
@@ -62,6 +72,9 @@ public class Interactable : MonoBehaviour
                     Debug.Log("Wafer Placed");
                     currentState = SpinCoaterState.TurnOnVacuum;
                     triggerZoneWafer.SetActive(false);
+                    triggerZoneEtc.SetActive(true);
+                    Quaternion cusRotation = Quaternion.Euler(0, 0, 0);
+                    curWafer = Instantiate(wafer, waferLocation.position, cusRotation);
                 }
                 else
                 {
@@ -74,6 +87,7 @@ public class Interactable : MonoBehaviour
                 Debug.Log("Vacuum on");
                 currentState = SpinCoaterState.PlacePMMA;
                 triggerZonePMMA.SetActive(true);
+                triggerZoneEtc.SetActive(false);
                 break;
 
             case SpinCoaterState.PlacePMMA:
@@ -83,6 +97,7 @@ public class Interactable : MonoBehaviour
                     Debug.Log("PMMA on");
                     currentState = SpinCoaterState.CloseSpinCoater;
                     triggerZonePMMA.SetActive(false);
+                    triggerZoneEtc.SetActive(true);
                 }
                 else
                 {
@@ -91,12 +106,13 @@ public class Interactable : MonoBehaviour
                 break;
 
             case SpinCoaterState.CloseSpinCoater:
-                //place model animate here
+                lid.SetActive(true);
                 Debug.Log("close spin");
                 currentState = SpinCoaterState.Done;
                 break;
 
             case SpinCoaterState.Done:
+                done = true;
                 Debug.Log("done.");
                 break;
         }
@@ -110,5 +126,12 @@ public class Interactable : MonoBehaviour
     public void ActivateWafer()
     {
         hasWafer = true;
+    }
+
+    void Update()
+    {
+        if(done == true) {
+            curWafer.transform.Rotate(0, 300f * Time.deltaTime, 0);
+        }
     }
 }

@@ -7,7 +7,9 @@ TagManager:
   - equip
   - CinemachineTarget
   - Interactable
-  - Wafer
+  - chuck
+  - wafer
+  - validPMMA
   layers:
   - Default
   - TransparentFX
