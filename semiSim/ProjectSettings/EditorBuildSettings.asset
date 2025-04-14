@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/gowningRoomVr.unity
     guid: 92d8188830369ef429bd9c9b1c671756
   - enabled: 1
-    path: Assets/Scenes/myScene.unity
+    path: Assets/Scenes/YellowRoom.unity
     guid: b9794b1879091634e85782bf9effb601
   - enabled: 1
     path: Assets/Scenes/vr template.unity
