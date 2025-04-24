@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ﻿using System.Collections.Generic;
-=======
-using System.Collections.Generic;
->>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
 using UnityEngine;
 
 public class FirstPersonMovement : MonoBehaviour
@@ -45,8 +41,4 @@ public class FirstPersonMovement : MonoBehaviour
         // Apply movement.
         rigidbody.linearVelocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.linearVelocity.y, targetVelocity.y);
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6

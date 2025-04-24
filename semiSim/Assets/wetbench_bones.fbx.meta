@@ -41,11 +41,7 @@ ModelImporter:
     importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
-<<<<<<< HEAD
     importCameras: 1
-=======
-    importCameras: 0
->>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
     importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
