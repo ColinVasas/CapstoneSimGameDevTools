@@ -10,6 +10,7 @@ TagManager:
   - chuck
   - wafer
   - validPMMA
+  - coldWafer
   layers:
   - Default
   - TransparentFX
