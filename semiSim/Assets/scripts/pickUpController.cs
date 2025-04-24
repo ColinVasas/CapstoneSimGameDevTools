@@ -59,7 +59,7 @@ public class pickUpController : MonoBehaviour
                heldObjRB.useGravity = false;
                heldObjRB.linearDamping = 10;
                heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-
+               pickObj.layer = LayerMask.NameToLayer("TransparentFX");
                heldObjRB.transform.parent = holdArea;
                heldObj = pickObj;
           }
@@ -70,7 +70,7 @@ public class pickUpController : MonoBehaviour
           heldObjRB.useGravity = true;
           heldObjRB.linearDamping = 1;
           heldObjRB.constraints = RigidbodyConstraints.None;
-
+          heldObj.layer = LayerMask.NameToLayer("Default");
           heldObj.transform.parent = null;
           heldObj = null;
      }
