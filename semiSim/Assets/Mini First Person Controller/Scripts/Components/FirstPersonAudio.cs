@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using System.Linq;
+=======
+using System.Linq;
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
 using UnityEngine;
 
 public class FirstPersonAudio : MonoBehaviour

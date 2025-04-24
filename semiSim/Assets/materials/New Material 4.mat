@@ -11,8 +11,12 @@ Material:
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
+<<<<<<< HEAD
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP
+=======
+  m_ValidKeywords: []
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,7 +59,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+<<<<<<< HEAD
         m_Texture: {fileID: 2800000, guid: cdebec39dbf81a14688e1de8d12897b4, type: 3}
+=======
+        m_Texture: {fileID: 0}
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -89,7 +97,11 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+<<<<<<< HEAD
     - _BumpScale: 0.1
+=======
+    - _BumpScale: 1
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -102,12 +114,21 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+<<<<<<< HEAD
     - _Metallic: 0.254
     - _OcclusionStrength: 1
     - _Parallax: 0.08
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 1
+=======
+    - _Metallic: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.005
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.5
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -116,8 +137,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD
     - _BaseColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
     - _Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+=======
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
+=======
+using UnityEngine;
+>>>>>>> c65e585d381111c8d2e3eb6bcfe9c79794ca04f6
 
 public class FirstPersonLook : MonoBehaviour
 {
