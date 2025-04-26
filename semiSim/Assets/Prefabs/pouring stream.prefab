@@ -65,7 +65,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+<<<<<<< Updated upstream
   - {fileID: 0}
+=======
+  - {fileID: 2100000, guid: fa1fc25e7022b9f4f9f0790df788d7ea, type: 2}
+>>>>>>> Stashed changes
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
