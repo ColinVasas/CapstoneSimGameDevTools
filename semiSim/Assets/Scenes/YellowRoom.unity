@@ -1101,7 +1101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3991554784767211771, guid: 44a8e9ce189cbf24fa01748716a0daac, type: 3}
       propertyPath: 'validTags.Array.data[0]'
-      value: coldWafer
+      value: wafer
       objectReference: {fileID: 0}
     - target: {fileID: 3991554784767211771, guid: 44a8e9ce189cbf24fa01748716a0daac, type: 3}
       propertyPath: 'validTags.Array.data[2]'
