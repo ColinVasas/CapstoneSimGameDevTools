@@ -11,11 +11,15 @@ TagManager:
   - wafer
   - validPMMA
   - coldWafer
+  - Dirty
+  - Clean
+  - CleanWafer
+  - validPI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnoreParticles
   - Water
   - UI
   - 3D UI
