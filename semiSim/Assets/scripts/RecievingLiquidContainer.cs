@@ -8,6 +8,8 @@ public class RecievingLiquidContainer : MonoBehaviour
 
     public Dictionary<LiquidType, Liquid> liquids = new Dictionary<LiquidType, Liquid>();
     private bool isPickedUp = false;
+    //public float maxCapacity = 1000f; // Maximum liquid volume
+
 
     public void ReceiveLiquid(Liquid newLiquid)
     {
