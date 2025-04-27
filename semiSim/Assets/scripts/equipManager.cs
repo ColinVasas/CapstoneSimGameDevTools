@@ -49,8 +49,14 @@ public class equipManager : MonoBehaviour
           trigger.SetActive(false);
      }
 
+     public void textDis()
+     {
+          StartCoroutine(DisplayTextMessage("hello this is my message"));
+     }
+
      public void HandleEquip(GameObject equippedObject)
      {
+
           if (!equippedObject.CompareTag("equip")) return;
 
           switch (equippedObject)
@@ -86,10 +92,12 @@ public class equipManager : MonoBehaviour
      private void EquipItem(GameObject current, GameObject next)
      {
           current.SetActive(false);
+
           if (next != null) next.tag = "equip";
 
           if (currentMessageIndex < equipMessages.Length)
           {
+               textDis();
                StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
                currentMessageIndex++;
           }
