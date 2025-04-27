@@ -19,13 +19,14 @@ public class BeakerDisplay : MonoBehaviour
     {
         if(recievingLiquidContainer.GetMixture() != null)
         {
-            detectedMixture.text = recievingLiquidContainer.GetMixture().solutionName.ToString() + " prepared";
+            detectedMixture.text = recievingLiquidContainer.GetMixture().solutionName.ToString() + " prepared U+2705";
         }
         else
         {
             detectedMixture.text = "Solution not prepared";
         }
-        liquidAmount.text = recievingLiquidContainer.GetLiquidLevel().ToString() + "ml";
+        
+        liquidAmount.text = (int) recievingLiquidContainer.GetLiquidLevel() + "ml / " + (int)recievingLiquidContainer.GetMaxCapacity() + "ml";
 
     }
 }

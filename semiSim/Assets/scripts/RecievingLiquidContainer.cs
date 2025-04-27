@@ -8,7 +8,7 @@ public class RecievingLiquidContainer : MonoBehaviour
 
     public Dictionary<LiquidType, Liquid> liquids = new Dictionary<LiquidType, Liquid>();
     private bool isPickedUp = false;
-    //public float maxCapacity = 1000f; // Maximum liquid volume
+    public float maxCapacity = 1000f; // Maximum liquid volume
 
 
     public void ReceiveLiquid(Liquid newLiquid)
@@ -16,7 +16,12 @@ public class RecievingLiquidContainer : MonoBehaviour
         Debug.Log("Recieved: " + newLiquid);
         if (liquids.ContainsKey(newLiquid.type))
         {
-            liquids[newLiquid.type].amount += newLiquid.amount; // Add to existing liquid amount
+            if(GetLiquidLevel() + newLiquid.amount < maxCapacity)
+                liquids[newLiquid.type].amount += newLiquid.amount; // Add to existing liquid amount
+            else
+            {
+                Debug.Log(transform.name + " is full");
+            }
         }
         else
         {
@@ -29,6 +34,10 @@ public class RecievingLiquidContainer : MonoBehaviour
         {
             IsCorrectMixture();
         }
+    }
+    public float GetMaxCapacity()
+    {
+        return maxCapacity;
     }
     public float GetLiquidLevel()
     {

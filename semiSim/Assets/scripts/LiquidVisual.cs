@@ -7,7 +7,7 @@ public class LiquidVisual : MonoBehaviour
     public Transform liquidTransform; // Reference to the liquid object
     public float maxFillHeight = 1f; // Maximum liquid height
     public float minFillHeight = 0.1f; // Minimum liquid height
-    public float maxCapacity = 1000f; // Maximum liquid volume
+    //public float maxCapacity = 1000f; // Maximum liquid volume
 
     // Color definitions
     private Color waterColor = Color.blue;
@@ -34,7 +34,7 @@ public class LiquidVisual : MonoBehaviour
 
     void UpdateLiquidLevel(float totalAmount)
     {
-        float fillPercent = Mathf.Clamp01(totalAmount / maxCapacity);
+        float fillPercent = Mathf.Clamp01(totalAmount / container.GetMaxCapacity());
         float newY = Mathf.Lerp(minFillHeight, maxFillHeight, fillPercent);
 
         liquidTransform.localScale = new Vector3(1, fillPercent*maxFillHeight, 1);
