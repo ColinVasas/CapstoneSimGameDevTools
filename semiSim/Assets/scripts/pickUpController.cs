@@ -8,11 +8,14 @@ public class pickUpController : MonoBehaviour
      [SerializeField] Transform holdArea;
      private GameObject heldObj;
      private Rigidbody heldObjRB;
+    private GameObject hoveredObj;
 
      [Header("Physics Parameters")]
      [SerializeField] private float pickupRange = 5.0f;
      [SerializeField] private float pickupForce = 150.0f;
      [SerializeField] private float rotationSpeed = 100.0f;
+
+    private KeyboardInteractable keyboardInteractable;
 
      public bool isRotating { get; private set; } = false;
 
@@ -34,8 +37,12 @@ public class pickUpController : MonoBehaviour
                     DropObject();
                }
           }
+        else
+        {
+            HoverManager();
+        }
 
-          if (Input.GetKey(KeyCode.R) && heldObj != null)
+        if (Input.GetKey(KeyCode.R) && heldObj != null)
           {
                isRotating = true;
                RotateObject();
@@ -49,9 +56,56 @@ public class pickUpController : MonoBehaviour
           {
                TryEquipHeldObject();
           }
-     }
 
-     void PickupObject(GameObject pickObj)
+
+
+        
+
+
+    }
+
+    private void HoverManager()
+    {
+        if (heldObj == null)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+            {
+                keyboardInteractable = hit.transform.GetComponent<KeyboardInteractable>();
+                if (keyboardInteractable != null)
+                {
+                    if (hoveredObj == null)
+                    {
+                        keyboardInteractable.OnHoverEnter();
+                        hoveredObj = hit.transform.gameObject;
+                    }
+                    else if (hoveredObj != hit.transform.gameObject)
+                    {
+                        // Exit old hover
+                        hoveredObj.GetComponent<KeyboardInteractable>().OnHoverExit();
+
+                        // Enter new hover
+                        keyboardInteractable.OnHoverEnter();
+                        hoveredObj = hit.transform.gameObject;
+                    }
+                }
+                else if (hoveredObj != null)
+                {
+                    // No interactable hit, but was hovering something
+                    hoveredObj.GetComponent<KeyboardInteractable>().OnHoverExit();
+                    hoveredObj = null;
+                }
+            }
+            else if (hoveredObj != null)
+            {
+                // No hit at all
+                hoveredObj.GetComponent<KeyboardInteractable>().OnHoverExit();
+                hoveredObj = null;
+            }
+        }
+    }
+
+    void PickupObject(GameObject pickObj)
      {
           if (pickObj.GetComponent<Rigidbody>())
           {
@@ -62,6 +116,12 @@ public class pickUpController : MonoBehaviour
                pickObj.layer = LayerMask.NameToLayer("TransparentFX");
                heldObjRB.transform.parent = holdArea;
                heldObj = pickObj;
+
+
+            if (keyboardInteractable != null)
+            {
+                keyboardInteractable.OnPickUpEnter();                
+            }
           }
      }
 
@@ -72,8 +132,13 @@ public class pickUpController : MonoBehaviour
           heldObjRB.constraints = RigidbodyConstraints.None;
           heldObj.layer = LayerMask.NameToLayer("Default");
           heldObj.transform.parent = null;
-          heldObj = null;
-     }
+          if (keyboardInteractable != null)
+            {
+                keyboardInteractable.OnPickUpExit();
+            }
+        heldObj = null;
+        keyboardInteractable = null;
+    }
 
      void MoveObject()
      {

@@ -2,6 +2,7 @@ public enum LiquidType
 {
     Water,
     Acid,
+    KOH,
     Hcl // Can be expanded later
 }
 

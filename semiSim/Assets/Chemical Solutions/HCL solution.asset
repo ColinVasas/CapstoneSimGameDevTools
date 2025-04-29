@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: HCL solution
   m_EditorClassIdentifier: 
   solutionName: HCL Solution
+  etchingMaterial: 2
   requiredLiquids:
   - type: 0
     ratio: 3
-  - type: 2
+  - type: 3
     ratio: 1

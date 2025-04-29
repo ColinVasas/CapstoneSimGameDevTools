@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class RecievingLiquidContainer : MonoBehaviour
 {
@@ -10,6 +12,25 @@ public class RecievingLiquidContainer : MonoBehaviour
     private bool isPickedUp = false;
     public float maxCapacity = 1000f; // Maximum liquid volume
 
+
+
+    private XRGrabInteractable grabInteractable;
+
+    private void Awake()
+    {
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        
+    }
+    private void OnDestroy()
+    {
+        
+    }
+    public bool IsPickedUp()
+    {
+        Debug.Log(grabInteractable.isSelected);
+        return grabInteractable.isSelected;
+    }
 
     public void ReceiveLiquid(Liquid newLiquid)
     {
