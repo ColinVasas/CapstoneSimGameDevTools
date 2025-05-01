@@ -20,13 +20,13 @@ public class equipManager : MonoBehaviour
 
      private string[] equipMessages = new string[]
      {
-        "Face Masks should be in\nthe bin next to the hairnets",
-        "Good job. You got a\nlocker assigned to you",
-        "You should find a fresh\nclean hood, goggles,\nand hazmat suit",
-        "Last few things,\non that bench over there…",
-        "There's a pair of booties,\nplease put them over your shoes",
+        "Find and put on\nthe face mask",
+        "Now for the clean hood",
+        "Goggles are next",
+        "Now for the hazmat suit",
+        "Don't forget your boots",
         "Lastly, put on some gloves",
-        "Alright. Are you ready to\nhead in the Clean Room?"
+        "Alright. Are you ready to\nhead into the Yellow Room?"
      };
 
      private int currentMessageIndex = 0;
