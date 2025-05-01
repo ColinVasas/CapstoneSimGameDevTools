@@ -20,13 +20,13 @@ public class equipManager : MonoBehaviour
 
      private string[] equipMessages = new string[]
      {
-        "Face Masks should be in the bin next to the hairnets",
-        "Good Good…. You got a locker assigned to you",
-        "You should find a fresh clean hood, goggles, and “bunny suit”",
-        "Lookin good so far, Last few things, on that bench over there…",
-        "There's a pair of booties, please put them over your shoes",
+        "Face Masks should be in\nthe bin next to the hairnets",
+        "Good job. You got a\nlocker assigned to you",
+        "You should find a fresh\nclean hood, goggles,\nand hazmat suit",
+        "Last few things,\non that bench over there…",
+        "There's a pair of booties,\nplease put them over your shoes",
         "Lastly, put on some gloves",
-        "Alright…. Are you ready to head in the Clean Room?"
+        "Alright. Are you ready to\nhead in the Clean Room?"
      };
 
      private int currentMessageIndex = 0;
@@ -63,25 +63,32 @@ public class equipManager : MonoBehaviour
           {
                case var obj when obj == hairNet:
                     EquipItem(hairNet, faceMask);
+                    // DisplayTextMessage("hairnet equipped!");
                     break;
                case var obj when obj == faceMask:
                     EquipItem(faceMask, cleanHood);
+                    // DisplayTextMessage("facemask equipped!");
                     break;
                case var obj when obj == cleanHood:
                     EquipItem(cleanHood, goggles);
+                    // DisplayTextMessage("cleanhood equipped!");
                     break;
                case var obj when obj == goggles:
                     EquipItem(goggles, bunnySuit);
+                    // DisplayTextMessage("goggles equipped!");
                     break;
                case var obj when obj == bunnySuit:
                     EquipItem(bunnySuit, boots);
+                    // DisplayTextMessage("bunny suit equipped!");
                     break;
                case var obj when obj == boots:
                     EquipItem(boots, gloves);
+                    // DisplayTextMessage("boots equipped!");
                     break;
                case var obj when obj == gloves:
                     trigger.SetActive(true);
                     EquipItem(gloves, null);
+                    // DisplayTextMessage("gloves equipped!");
                     break;
                default:
                     Debug.Log("Invalid equipment sequence.");

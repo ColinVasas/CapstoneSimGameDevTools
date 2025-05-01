@@ -11,11 +11,11 @@ public class deskCanvasText : MonoBehaviour
 
      private string[] messages = new string[]
      {
-        "Welcome",
-        "This is a semiconductor clean room",
-        "To begin we will have you change into a gown",
-        "This is a necessary step as cleanrooms are prone to particles",
-        "Why don’t you go find a hairnet… I think they’re on the counter to the right"
+        "Welcome.",
+        "This is a\nsemiconductor clean room.",
+        "To begin, we will\nhave you change\ninto a gown.",
+        "This is a necessary step\nas cleanrooms are\nsensitive to particles.",
+        "Start by finding a hairnet.\nI think they’re on\nthe counter to the right."
      };
 
      void Start()
