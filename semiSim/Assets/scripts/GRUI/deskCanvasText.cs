@@ -15,8 +15,12 @@ public class deskCanvasText : MonoBehaviour
         "This is a\nsemiconductor clean room",
         "To begin, we will\nhave you change\ninto a gown",
         "This is a necessary step\nas cleanrooms are\nsensitive to particles",
-        "Start by finding a hairnet\non the counter to the right"
+        "Start by finding a hairnet\non the counter to the right",
+        "Once you find it, left click\nto pick it up or put it down"
      };
+
+    private Coroutine introCoroutine;
+    private bool stopIntro = false;
 
      void Start()
      {
@@ -24,13 +28,15 @@ public class deskCanvasText : MonoBehaviour
           equipText.color = new Color(equipText.color.r, equipText.color.g, equipText.color.b, 0); 
           equipText.gameObject.SetActive(false);
 
-          StartCoroutine(DisplayTextSequence());
+          introCoroutine = StartCoroutine(DisplayTextSequence());
      }
 
      private IEnumerator DisplayTextSequence()
      {
           foreach (string message in messages)
           {
+            if (stopIntro) yield break;
+
                yield return StartCoroutine(DisplayTextMessage(message));
                yield return new WaitForSeconds(delayBetweenTexts);
           }
@@ -64,4 +70,16 @@ public class deskCanvasText : MonoBehaviour
           color.a = endAlpha;
           equipText.color = color;
      }
+
+    // stop the intro text if we started picking up stuff
+    public void StopIntro()
+    {
+        stopIntro = true;
+        if (introCoroutine != null) StopCoroutine(introCoroutine);
+
+        equipText.gameObject.SetActive(false);
+        var c = equipText.color;
+        c.a = 0;
+        equipText.color = c;
+    }
 }

@@ -18,6 +18,9 @@ public class equipManager : MonoBehaviour
      public float fadeDuration = 0.5f;
      public float displayDuration = 1.5f;
 
+    private Coroutine equipMessageCoroutine;
+    private int currentMessageIndex = 0;
+
      private string[] equipMessages = new string[]
      {
         "Find and put on\nthe face mask",
@@ -26,10 +29,8 @@ public class equipManager : MonoBehaviour
         "Now for the hazmat suit",
         "Don't forget your boots",
         "Lastly, put on some gloves",
-        "Alright. Are you ready to\nhead into the Yellow Room?"
+        "Alright. Now head to the door\nto enter the Yellow Room!"
      };
-
-     private int currentMessageIndex = 0;
 
      private void Start()
      {
@@ -94,6 +95,17 @@ public class equipManager : MonoBehaviour
                     Debug.Log("Invalid equipment sequence.");
                     break;
           }
+
+        // kill process of any current message
+        if (equipMessageCoroutine != null)
+        {
+            StopCoroutine(equipMessageCoroutine);
+        }
+        // queue up current message
+        if (currentMessageIndex < equipMessages.Length)
+        {
+            equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+        }
      }
 
      private void EquipItem(GameObject current, GameObject next)
@@ -102,12 +114,12 @@ public class equipManager : MonoBehaviour
 
           if (next != null) next.tag = "equip";
 
-          if (currentMessageIndex < equipMessages.Length)
-          {
-               textDis();
-               StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
-               currentMessageIndex++;
-          }
+          //if (currentMessageIndex < equipMessages.Length)
+          //{
+          //     textDis();
+          //     StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
+          //     currentMessageIndex++;
+          //}
      }
 
      private IEnumerator DisplayTextMessage(string message)
@@ -115,9 +127,9 @@ public class equipManager : MonoBehaviour
           equipText.text = message;
           equipText.gameObject.SetActive(true);
 
-          yield return StartCoroutine(FadeText(0f, 1f, fadeDuration)); // Fade in
+          yield return FadeText(0f, 1f, fadeDuration); // Fade in
           yield return new WaitForSeconds(displayDuration);
-          yield return StartCoroutine(FadeText(1f, 0f, fadeDuration)); // Fade out
+          yield return FadeText(1f, 0f, fadeDuration); // Fade out
 
           equipText.gameObject.SetActive(false);
      }

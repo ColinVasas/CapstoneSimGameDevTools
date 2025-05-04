@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class pickUpController : MonoBehaviour
@@ -16,8 +17,29 @@ public class pickUpController : MonoBehaviour
 
      public bool isRotating { get; private set; } = false;
 
+    // variables for "Press E to equip" and stopping intro text
+     [Header("UI")]
+     // public GameObject trigger;
+     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
+     public float fadeDuration = 0.5f;
+     public float displayDuration = 1.5f;
+     private Coroutine messageCoroutine;
+    private deskCanvasText introText;
+    private Coroutine fadeCoroutine;
+    private Coroutine persistentCoroutine;
 
-     private void Update()
+    private void Start()
+    {
+        introText = FindFirstObjectByType<deskCanvasText>();
+
+
+        equipText.gameObject.SetActive(false);
+        var c = equipText.color;
+        c.a = 0f;
+        equipText.color = c;
+        // trigger.SetActive(false);
+    }
+    private void Update()
      {
           if (Input.GetMouseButtonDown(0))
           {
@@ -26,9 +48,15 @@ public class pickUpController : MonoBehaviour
                     RaycastHit hit;
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
                     {
-                         PickupObject(hit.transform.gameObject);
+                         if (PickupObject(hit.transform.gameObject) && hit.transform.CompareTag("equip"))
+                        {
+                        StopMessage();
+                        messageCoroutine = StartCoroutine(ShowPersistentMessage("Press 'E' to equip"));
                     }
-               }
+                    
+                    }
+                    // DisplayTextMessage("Press 'E' to equip");
+            }
                else
                {
                     DropObject();
@@ -47,13 +75,22 @@ public class pickUpController : MonoBehaviour
           }
           if (Input.GetKeyDown(KeyCode.E))
           {
-               TryEquipHeldObject();
+            
+                TryEquipHeldObject();
           }
      }
 
-     void PickupObject(GameObject pickObj)
+     bool PickupObject(GameObject pickObj)
      {
-          if (pickObj.GetComponent<Rigidbody>())
+        var rb = pickObj.GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            return false;
+        }
+
+        introText?.StopIntro();  
+        
+        if (pickObj.GetComponent<Rigidbody>())
           {
                heldObjRB = pickObj.GetComponent<Rigidbody>();
                heldObjRB.useGravity = false;
@@ -63,10 +100,20 @@ public class pickUpController : MonoBehaviour
                heldObjRB.transform.parent = holdArea;
                heldObj = pickObj;
           }
+
+        return true;
      }
 
      void DropObject()
      {
+        // get rid of "Press E to equip" if object dropped
+        StopMessage();
+        if (messageCoroutine != null)
+        {
+            StopCoroutine(messageCoroutine);
+            HideMessageImmediate();
+            messageCoroutine = null;
+        }
           heldObjRB.useGravity = true;
           heldObjRB.linearDamping = 1;
           heldObjRB.constraints = RigidbodyConstraints.None;
@@ -98,9 +145,35 @@ public class pickUpController : MonoBehaviour
      {
           if (heldObj != null && heldObj.CompareTag("equip"))
           {
-               EquipObject();
+                StopMessage();
+                EquipObject();
           }
      }
+
+    private void StopMessage()
+    {
+        if (messageCoroutine != null)
+        {
+            StopCoroutine(messageCoroutine);
+            messageCoroutine = null;
+        }
+        if (fadeCoroutine != null)
+        {
+            StopFadeCoroutine();
+            fadeCoroutine = null;
+        }
+        if (persistentCoroutine != null)
+        {
+            StopPersistentCoroutine();
+            persistentCoroutine = null;
+        }
+        
+        // hide and reset fade
+        equipText.gameObject.SetActive(false);
+        var c = equipText.color;
+        c.a = 0;
+        equipText.color = c;
+    }
 
      void EquipObject()
      {
@@ -117,10 +190,86 @@ public class pickUpController : MonoBehaviour
           heldObj = null;
      }
 
+     public IEnumerator DisplayTextMessage(string message)
+     {
+        // this is helpful for when we call "PRESS E" text shenanigans
+        StopFadeCoroutine();
 
+        // trigger.SetActive(true);
+          equipText.text = message;
+          equipText.gameObject.SetActive(true);
+
+          yield return FadeText(0f, 1f, fadeDuration); // Fade in
+          yield return new WaitForSeconds(displayDuration);
+          yield return FadeText(1f, 0f, fadeDuration); // Fade out
+
+          equipText.gameObject.SetActive(false);
+          // trigger.SetActive(false);
+     }
+
+    // for when we DON'T want text fade
+    private IEnumerator ShowPersistentMessage(string msg)
+    {
+        StopFadeCoroutine();
+
+        equipText.text = msg;
+        equipText.gameObject.SetActive(true);
+
+        yield return FadeText(0,1,fadeDuration);
+
+        // don't want text to fade
+        while (true) yield return null;
+    }
+
+    private void StopFadeCoroutine()
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+            fadeCoroutine = null;
+        }
+    }
+
+    private void StopPersistentCoroutine()
+    {
+        if (persistentCoroutine != null)
+        {
+            StopCoroutine(persistentCoroutine);
+            persistentCoroutine = null;
+        }
+    }
+
+     private IEnumerator FadeText(float startAlpha, float endAlpha, float duration)
+     {
+          float elapsed = 0f;
+          Color color = equipText.color;
+
+          while (elapsed < duration)
+          {
+              elapsed += Time.deltaTime;
+              color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+              equipText.color = color;
+              yield return null;
+          }
+
+          color.a = endAlpha;
+          equipText.color = color;
+     }
+
+    private void HideMessageImmediate()
+    {
+        // trigger.SetActive(false);
+        equipText.gameObject.SetActive(false);
+        var c = equipText.color;
+        c.a = 0f;
+        equipText.color = c;
+    }
 
      public bool IsRotatingObject()
      {
           return isRotating;
      }
+
+
+
 }
