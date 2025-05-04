@@ -5,25 +5,25 @@ using UnityEngine;
 
 public class pickUpController : MonoBehaviour
 {
-     [Header("Pickup Settings")]
-     [SerializeField] Transform holdArea;
-     private GameObject heldObj;
-     private Rigidbody heldObjRB;
+    [Header("Pickup Settings")]
+    [SerializeField] Transform holdArea;
+    private GameObject heldObj;
+    private Rigidbody heldObjRB;
 
-     [Header("Physics Parameters")]
-     [SerializeField] private float pickupRange = 5.0f;
-     [SerializeField] private float pickupForce = 150.0f;
-     [SerializeField] private float rotationSpeed = 100.0f;
+    [Header("Physics Parameters")]
+    [SerializeField] private float pickupRange = 5.0f;
+    [SerializeField] private float pickupForce = 150.0f;
+    [SerializeField] private float rotationSpeed = 100.0f;
 
-     public bool isRotating { get; private set; } = false;
+    public bool isRotating { get; private set; } = false;
 
     // variables for "Press E to equip" and stopping intro text
-     [Header("UI")]
-     // public GameObject trigger;
-     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
-     public float fadeDuration = 0.5f;
-     public float displayDuration = 1.5f;
-     private Coroutine messageCoroutine;
+    [Header("UI")]
+    // public GameObject trigger;
+    public TextMeshProUGUI equipText; // Single TMP UI element for all messages
+    public float fadeDuration = 0.5f;
+    public float displayDuration = 1.5f;
+    private Coroutine messageCoroutine;
     private deskCanvasText introText;
     private Coroutine fadeCoroutine;
     private Coroutine persistentCoroutine;
@@ -40,48 +40,55 @@ public class pickUpController : MonoBehaviour
         // trigger.SetActive(false);
     }
     private void Update()
-     {
-          if (Input.GetMouseButtonDown(0))
-          {
-               if (heldObj == null)
-               {
-                    RaycastHit hit;
-                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (heldObj == null)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange))
+                {
+                    // picked up correct object
+                    if (PickupObject(hit.transform.gameObject) && hit.transform.CompareTag("equip"))
                     {
-                         if (PickupObject(hit.transform.gameObject) && hit.transform.CompareTag("equip"))
-                        {
                         StopMessage();
                         messageCoroutine = StartCoroutine(ShowPersistentMessage("Press 'E' to equip"));
                     }
-                    
+                    // incorrect object picked up
+                    else if(PickupObject(hit.transform.gameObject))
+                    {
+                        StopMessage();
+                        messageCoroutine = StartCoroutine(ShowPersistentMessage("Whoops! Wrong object!\nLeft click to put down"));
                     }
-                    // DisplayTextMessage("Press 'E' to equip");
+                    
+                }
+                // DisplayTextMessage("Press 'E' to equip");
             }
-               else
-               {
-                    DropObject();
-               }
-          }
+            else
+            {
+                DropObject();
+            }
+        }
 
-          if (Input.GetKey(KeyCode.R) && heldObj != null)
-          {
-               isRotating = true;
-               RotateObject();
-          }
-          else
-          {
-               isRotating = false;
-               if (heldObj != null) MoveObject();
-          }
-          if (Input.GetKeyDown(KeyCode.E))
-          {
+        if (Input.GetKey(KeyCode.R) && heldObj != null)
+        {
+            isRotating = true;
+            RotateObject();
+        }
+        else
+        {
+            isRotating = false;
+            if (heldObj != null) MoveObject();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             
-                TryEquipHeldObject();
-          }
-     }
+            TryEquipHeldObject();
+        }
+    }
 
-     bool PickupObject(GameObject pickObj)
-     {
+    bool PickupObject(GameObject pickObj)
+    {
         var rb = pickObj.GetComponent<Rigidbody>();
         if (rb == null)
         {
@@ -91,21 +98,21 @@ public class pickUpController : MonoBehaviour
         introText?.StopIntro();  
         
         if (pickObj.GetComponent<Rigidbody>())
-          {
-               heldObjRB = pickObj.GetComponent<Rigidbody>();
-               heldObjRB.useGravity = false;
-               heldObjRB.linearDamping = 10;
-               heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-               pickObj.layer = LayerMask.NameToLayer("TransparentFX");
-               heldObjRB.transform.parent = holdArea;
-               heldObj = pickObj;
-          }
+        {
+            heldObjRB = pickObj.GetComponent<Rigidbody>();
+            heldObjRB.useGravity = false;
+            heldObjRB.linearDamping = 10;
+            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+            pickObj.layer = LayerMask.NameToLayer("TransparentFX");
+            heldObjRB.transform.parent = holdArea;
+            heldObj = pickObj;
+        }
 
         return true;
-     }
+    }
 
-     void DropObject()
-     {
+    void DropObject()
+    {
         // get rid of "Press E to equip" if object dropped
         StopMessage();
         if (messageCoroutine != null)
@@ -114,40 +121,40 @@ public class pickUpController : MonoBehaviour
             HideMessageImmediate();
             messageCoroutine = null;
         }
-          heldObjRB.useGravity = true;
-          heldObjRB.linearDamping = 1;
-          heldObjRB.constraints = RigidbodyConstraints.None;
-          heldObj.layer = LayerMask.NameToLayer("Default");
-          heldObj.transform.parent = null;
-          heldObj = null;
-     }
+        heldObjRB.useGravity = true;
+        heldObjRB.linearDamping = 1;
+        heldObjRB.constraints = RigidbodyConstraints.None;
+        heldObj.layer = LayerMask.NameToLayer("Default");
+        heldObj.transform.parent = null;
+        heldObj = null;
+    }
 
-     void MoveObject()
-     {
-          if (Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f)
-          {
-               Vector3 moveDirection = holdArea.position - heldObj.transform.position;
-               heldObjRB.AddForce(moveDirection * pickupForce);
-          }
-     }
+    void MoveObject()
+    {
+        if (Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f)
+        {
+            Vector3 moveDirection = holdArea.position - heldObj.transform.position;
+            heldObjRB.AddForce(moveDirection * pickupForce);
+        }
+    }
 
      void RotateObject()
      {
-          float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
-          float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
 
-          heldObjRB.angularVelocity = Vector3.zero;
-          heldObj.transform.Rotate(Vector3.up, -mouseX, Space.World);
-          heldObj.transform.Rotate(Vector3.right, mouseY, Space.World);
+        heldObjRB.angularVelocity = Vector3.zero;
+        heldObj.transform.Rotate(Vector3.up, -mouseX, Space.World);
+        heldObj.transform.Rotate(Vector3.right, mouseY, Space.World);
      }
 
      void TryEquipHeldObject()
      {
-          if (heldObj != null && heldObj.CompareTag("equip"))
-          {
-                StopMessage();
-                EquipObject();
-          }
+        if (heldObj != null && heldObj.CompareTag("equip"))
+        {
+            StopMessage();
+            EquipObject();
+        }
      }
 
     private void StopMessage()
@@ -207,7 +214,7 @@ public class pickUpController : MonoBehaviour
           // trigger.SetActive(false);
      }
 
-    // for when we DON'T want text fade
+    // for when we DON'T want text fade out
     private IEnumerator ShowPersistentMessage(string msg)
     {
         StopFadeCoroutine();
@@ -215,10 +222,15 @@ public class pickUpController : MonoBehaviour
         equipText.text = msg;
         equipText.gameObject.SetActive(true);
 
+        // fade in (but don't fade out)
         yield return FadeText(0,1,fadeDuration);
 
         // don't want text to fade
-        while (true) yield return null;
+        while (true)
+        {
+            yield return null;
+        }
+            
     }
 
     private void StopFadeCoroutine()
