@@ -18,21 +18,19 @@ public class equipManager : MonoBehaviour
      public float fadeDuration = 0.5f;
      public float displayDuration = 1.5f;
 
-     private Coroutine equipMessageCoroutine;
-     private int currentMessageIndex = 0;
-
      private string[] equipMessages = new string[]
      {
-          "Find and put on\nthe face mask",
-          "Now for the clean hood",
-          "Goggles are next",
-          "Now for the hazmat suit",
-          "Don't forget your boots",
-          "Lastly, put on some gloves",
-          "Alright. Now head to the door\nto enter the Yellow Room!"
+        "Face Masks should be in the bin next to the hairnets",
+        "Good Good�. You got a locker assigned to you",
+        "You should find a fresh clean hood, goggles, and �bunny suit�",
+        "Lookin good so far, Last few things, on that bench over there�",
+        "There's a pair of booties, please put them over your shoes",
+        "Lastly, put on some gloves",
+        "Alright�. Are you ready to head in the Clean Room?"
      };
 
-<<<<<<< Updated upstream
+     private int currentMessageIndex = 0;
+
      public TaskListUI taskListUI; //Reference TaskListUI script through UI manager
 
      private void Start()
@@ -49,36 +47,6 @@ public class equipManager : MonoBehaviour
           bunnySuit.tag = "Untagged";
           boots.tag = "Untagged";
           gloves.tag = "Untagged";
-=======
-    public TaskListUI taskListUI; //Reference TaskListUI script through UI manager
-
-    private void Start()
-    {
-          equipText.gameObject.SetActive(false);
-          Color textColor = equipText.color;
-          textColor.a = 0f;
-          equipText.color = textColor;
-
-          hairNet.tag = "equip";
-          faceMask.tag = "Untagged";
-          cleanHood.tag = "Untagged";
-          goggles.tag = "Untagged";
-          bunnySuit.tag = "Untagged";
-          boots.tag = "Untagged";
-          gloves.tag = "Untagged";
-
-          trigger.SetActive(false);
-
-          // Add initial tasks to the task list
-          taskListUI.AddTask("Wear HairNet");
-          taskListUI.AddTask("Equip Face Mask");
-          taskListUI.AddTask("Put on Clean Hood");
-          taskListUI.AddTask("Wear Goggles");
-          taskListUI.AddTask("Put on Bunny Suit");
-          taskListUI.AddTask("Wear Boots");
-          taskListUI.AddTask("Put on Gloves");
-    }
->>>>>>> Stashed changes
 
           trigger.SetActive(false);
 
@@ -97,12 +65,13 @@ public class equipManager : MonoBehaviour
           StartCoroutine(DisplayTextMessage("hello this is my message"));
      }
 
-<<<<<<< Updated upstream
      public void HandleEquip(GameObject equippedObject)
      {
-=======
-        switch (equippedObject)
-        {
+
+          if (!equippedObject.CompareTag("equip")) return;
+
+          switch (equippedObject)
+          {
             case var obj when obj == hairNet:
                 EquipItem(hairNet, faceMask, "Wear HairNet");
                 break;
@@ -125,83 +94,21 @@ public class equipManager : MonoBehaviour
                 trigger.SetActive(true);
                 EquipItem(gloves, null, "Put on Gloves");
                 break;
-        }
->>>>>>> Stashed changes
-
-          if (!equippedObject.CompareTag("equip")) return;
-
-<<<<<<< Updated upstream
-          switch (equippedObject)
-          {
-               case var obj when obj == hairNet:
-                    EquipItem(hairNet, faceMask, "Wear HairNet");
-                    break;
-               case var obj when obj == faceMask:
-                    EquipItem(faceMask, cleanHood, "Equip Face Mask");
-                    break;
-               case var obj when obj == cleanHood:
-                    EquipItem(cleanHood, goggles, "Put on Clean Hood");
-                    break;
-               case var obj when obj == goggles:
-                    EquipItem(goggles, bunnySuit, "Wear Goggles");
-                    break;
-               case var obj when obj == bunnySuit:
-                    EquipItem(bunnySuit, boots, "Put on Bunny Suit");
-                    break;
-               case var obj when obj == boots:
-                    EquipItem(boots, gloves, "Wear Boots");
-                    break;
-               case var obj when obj == gloves:
-                    trigger.SetActive(true);
-                    EquipItem(gloves, null, "Put on Gloves");
-                    break;
-               default:
-                    Debug.Log("Invalid equipment sequence.");
-                    break;
-          }
-=======
-    private void EquipItem(GameObject current, GameObject next, string taskName)
-    {
-        current.SetActive(false);
->>>>>>> Stashed changes
-
-          // kill process of any current message
-          if (equipMessageCoroutine != null)
-          {
-               StopCoroutine(equipMessageCoroutine);
-          }
-          // queue up current message
-          if (currentMessageIndex < equipMessages.Length)
-          {
-               equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
           }
      }
 
-<<<<<<< Updated upstream
      private void EquipItem(GameObject current, GameObject next, string taskName)
      {
           current.SetActive(false);
-=======
-        //if (currentMessageIndex < equipMessages.Length)
-        //{
-        //     textDis();
-        //     StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
-        //     currentMessageIndex++;
-        //}
-
-          // Mark the task as completed in the task list
-          taskListUI.CompleteTask(taskName);
-    }
->>>>>>> Stashed changes
 
           if (next != null) next.tag = "equip";
 
-          if (currentMessageIndex < equipMessages.Length)
-          {
-               textDis();
-               StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
-               currentMessageIndex++;
-          }
+          // if (currentMessageIndex < equipMessages.Length)
+          // {
+          //      textDis();
+          //      StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
+          //      currentMessageIndex++;
+          // }
 
           // Mark the task as completed in the task list
           taskListUI.CompleteTask(taskName);
