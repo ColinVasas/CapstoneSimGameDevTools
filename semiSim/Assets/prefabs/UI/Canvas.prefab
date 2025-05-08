@@ -152,7 +152,10 @@ GameObject:
   - component: {fileID: 285775660730740212}
   - component: {fileID: 2347188351142121379}
   - component: {fileID: 9124206885085795034}
+<<<<<<< Updated upstream
   - component: {fileID: 7005172477259401697}
+=======
+>>>>>>> Stashed changes
   m_Layer: 5
   m_Name: TaskList
   m_TagString: Untagged
@@ -174,9 +177,15 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5730524077576971463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -5, y: 374}
+=======
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1075, y: -200}
+>>>>>>> Stashed changes
   m_SizeDelta: {x: 150, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1573521768569889317
@@ -230,10 +239,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
+<<<<<<< Updated upstream
     m_Left: 0
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
+=======
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+>>>>>>> Stashed changes
   m_ChildAlignment: 0
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
@@ -257,6 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+<<<<<<< Updated upstream
 --- !u!114 &7005172477259401697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +294,8 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1 &3867601098968937916
 GameObject:
   m_ObjectHideFlags: 0
