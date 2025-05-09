@@ -18,18 +18,19 @@ public class equipManager : MonoBehaviour
      public float fadeDuration = 0.5f;
      public float displayDuration = 1.5f;
 
+     private Coroutine equipMessageCoroutine;
+     private int currentMessageIndex = 0;
+
      private string[] equipMessages = new string[]
      {
-        "Face Masks should be in the bin next to the hairnets",
-        "Good Good�. You got a locker assigned to you",
-        "You should find a fresh clean hood, goggles, and �bunny suit�",
-        "Lookin good so far, Last few things, on that bench over there�",
-        "There's a pair of booties, please put them over your shoes",
+        "Find and put on\nthe face mask",
+        "Now for the clean hood",
+        "Goggles are next",
+        "Now for the hazmat suit",
+        "Don't forget your boots",
         "Lastly, put on some gloves",
-        "Alright�. Are you ready to head in the Clean Room?"
+        "Alright. Now head to the door\nto enter the Yellow Room!"
      };
-
-     private int currentMessageIndex = 0;
 
      public TaskListUI taskListUI; //Reference TaskListUI script through UI manager
 
@@ -94,6 +95,20 @@ public class equipManager : MonoBehaviour
                 trigger.SetActive(true);
                 EquipItem(gloves, null, "Put on Gloves");
                 break;
+            default:
+                Debug.Log("Invalid equipment sequence.");
+                break;
+          }
+
+          // kill process of any current message
+          if (equipMessageCoroutine != null)
+          {
+               StopCoroutine(equipMessageCoroutine);
+          }
+          // queue up current message
+          if (currentMessageIndex < equipMessages.Length)
+          {
+               equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
           }
      }
 
