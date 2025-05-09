@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7131901231009785838, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1079,7 +1083,7 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   rotationSpeed: 500
-  equipText: {fileID: 0}
+  equipText: {fileID: 608141869}
   fadeDuration: 0.5
   displayDuration: 1.5
 --- !u!1 &164411304
@@ -3023,6 +3027,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 252473627}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!114 &608141869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6080092143116405475, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+  m_PrefabInstance: {fileID: 17302603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &610233848
 GameObject:
   m_ObjectHideFlags: 0
@@ -3115,6 +3130,17 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.009562933, z: 0.00010271947}
     m_Extent: {x: 0.002693187, y: 0.009549991, z: 0.0018348191}
   m_DirtyAABB: 0
+--- !u!114 &611541053 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5605168206779814901, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+  m_PrefabInstance: {fileID: 17302603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39f324ed77e1b348870a005d9f91048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &616490577
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,10 +6546,10 @@ MonoBehaviour:
   boots: {fileID: 923593936}
   gloves: {fileID: 1676150142}
   trigger: {fileID: 343196318}
-  equipText: {fileID: 0}
+  equipText: {fileID: 608141869}
   fadeDuration: 0.5
   displayDuration: 1.5
-  taskListUI: {fileID: 0}
+  taskListUI: {fileID: 611541053}
 --- !u!1 &1333973455
 GameObject:
   m_ObjectHideFlags: 0
