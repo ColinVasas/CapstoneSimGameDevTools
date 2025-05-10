@@ -723,9 +723,6 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   rotationSpeed: 500
-  equipText: {fileID: 0}
-  fadeDuration: 0.5
-  displayDuration: 1.5
 --- !u!114 &156195188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2552,9 +2549,6 @@ MonoBehaviour:
   pickupRange: 5
   pickupForce: 150
   rotationSpeed: 500
-  equipText: {fileID: 0}
-  fadeDuration: 0.5
-  displayDuration: 1.5
 --- !u!114 &531233932
 MonoBehaviour:
   m_ObjectHideFlags: 0
