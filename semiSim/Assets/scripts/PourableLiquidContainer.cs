@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 public class PourableLiquidContainer : MonoBehaviour
 {
-    
+
+    [SerializeField] TextMeshProUGUI displayText;
     [SerializeField] Transform pourPoint;
 
     [Header("Set these based on container")]
@@ -30,6 +32,10 @@ public class PourableLiquidContainer : MonoBehaviour
         if (liquidStream != null)
         {
             streamRenderer = liquidStream.GetComponent<Renderer>();
+        }
+        if(displayText != null && containedLiquid != null)
+        {
+            displayText.text = containedLiquid.type.ToString();
         }
     }
 

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class RecievingLiquidContainer : MonoBehaviour
 {
@@ -8,13 +10,39 @@ public class RecievingLiquidContainer : MonoBehaviour
 
     public Dictionary<LiquidType, Liquid> liquids = new Dictionary<LiquidType, Liquid>();
     private bool isPickedUp = false;
+    public float maxCapacity = 1000f; // Maximum liquid volume
+
+
+
+    private XRGrabInteractable grabInteractable;
+
+    private void Awake()
+    {
+        grabInteractable = GetComponent<XRGrabInteractable>();
+
+        
+    }
+    private void OnDestroy()
+    {
+        
+    }
+    public bool IsPickedUp()
+    {
+        Debug.Log(grabInteractable.isSelected);
+        return grabInteractable.isSelected;
+    }
 
     public void ReceiveLiquid(Liquid newLiquid)
     {
         Debug.Log("Recieved: " + newLiquid);
         if (liquids.ContainsKey(newLiquid.type))
         {
-            liquids[newLiquid.type].amount += newLiquid.amount; // Add to existing liquid amount
+            if(GetLiquidLevel() + newLiquid.amount < maxCapacity)
+                liquids[newLiquid.type].amount += newLiquid.amount; // Add to existing liquid amount
+            else
+            {
+                Debug.Log(transform.name + " is full");
+            }
         }
         else
         {
@@ -28,6 +56,10 @@ public class RecievingLiquidContainer : MonoBehaviour
             IsCorrectMixture();
         }
     }
+    public float GetMaxCapacity()
+    {
+        return maxCapacity;
+    }
     public float GetLiquidLevel()
     {
 
@@ -35,7 +67,7 @@ public class RecievingLiquidContainer : MonoBehaviour
         foreach (var liquid in liquids) {
             totalAmount += liquid.Value.amount;
         }
-        Debug.Log("total liquid amount: " + totalAmount);
+        // Debug.Log("total liquid amount: " + totalAmount);
 
         return totalAmount;
     }

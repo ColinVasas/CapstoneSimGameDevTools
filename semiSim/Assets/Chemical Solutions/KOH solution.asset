@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1ad409c292db394f87c8e61fd6a01c4, type: 3}
-  m_Name: Equal everything
+  m_Name: KOH solution
   m_EditorClassIdentifier: 
-  solutionName: Equal everything
-  etchingMaterial: 3
+  solutionName: KOH
+  etchingMaterial: 0
   requiredLiquids:
   - type: 0
-    ratio: 1
+    ratio: 5
   - type: 2
-    ratio: 1
-  - type: 1
     ratio: 1
