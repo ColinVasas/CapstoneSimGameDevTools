@@ -5,24 +5,24 @@ using TMPro;
 
 public class equipManager : MonoBehaviour
 {
-    public GameObject hairNet;
-    public GameObject faceMask;
-    public GameObject cleanHood;
-    public GameObject goggles;
-    public GameObject bunnySuit;
-    public GameObject boots;
-    public GameObject gloves;
+     public GameObject hairNet;
+     public GameObject faceMask;
+     public GameObject cleanHood;
+     public GameObject goggles;
+     public GameObject bunnySuit;
+     public GameObject boots;
+     public GameObject gloves;
 
-    public GameObject trigger;
-    public TextMeshProUGUI equipText; // Single TMP UI element for all messages
-    public float fadeDuration = 0.5f;
-    public float displayDuration = 1.5f;
+     public GameObject trigger;
+     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
+     public float fadeDuration = 0.5f;
+     public float displayDuration = 1.5f;
 
-    private Coroutine equipMessageCoroutine;
-    private int currentMessageIndex = 0;
+     private Coroutine equipMessageCoroutine;
+     private int currentMessageIndex = 0;
 
-    private string[] equipMessages = new string[]
-    {
+     private string[] equipMessages = new string[]
+     {
         "Find and put on\nthe face mask",
         "Now for the clean hood",
         "Goggles are next",
@@ -30,124 +30,131 @@ public class equipManager : MonoBehaviour
         "Don't forget your boots",
         "Lastly, put on some gloves",
         "Alright. Now head to the door\nto enter the Yellow Room!"
-    };
+     };
 
-    private void Start()
-    {
-        equipText.gameObject.SetActive(false);
-        Color textColor = equipText.color;
-        textColor.a = 0f;
-        equipText.color = textColor;
+     public TaskListUI taskListUI; //Reference TaskListUI script through UI manager
 
-        hairNet.tag = "equip";
-        faceMask.tag = "Untagged";
-        cleanHood.tag = "Untagged";
-        goggles.tag = "Untagged";
-        bunnySuit.tag = "Untagged";
-        boots.tag = "Untagged";
-        gloves.tag = "Untagged";
+     private void Start()
+     {
+          equipText.gameObject.SetActive(false);
+          Color textColor = equipText.color;
+          textColor.a = 0f;
+          equipText.color = textColor;
 
-        trigger.SetActive(false);
-    }
+          hairNet.tag = "equip";
+          faceMask.tag = "Untagged";
+          cleanHood.tag = "Untagged";
+          goggles.tag = "Untagged";
+          bunnySuit.tag = "Untagged";
+          boots.tag = "Untagged";
+          gloves.tag = "Untagged";
 
-    public void textDis()
-    {
-        StartCoroutine(DisplayTextMessage("hello this is my message"));
-    }
+          trigger.SetActive(false);
 
-    public void HandleEquip(GameObject equippedObject)
-    {
+          // Add initial tasks to the task list
+          taskListUI.AddTask("Wear HairNet");
+          taskListUI.AddTask("Equip Face Mask");
+          taskListUI.AddTask("Put on Clean Hood");
+          taskListUI.AddTask("Wear Goggles");
+          taskListUI.AddTask("Put on Bunny Suit");
+          taskListUI.AddTask("Wear Boots");
+          taskListUI.AddTask("Put on Gloves");
+     }
 
-        if (!equippedObject.CompareTag("equip")) return;
+     public void textDis()
+     {
+          StartCoroutine(DisplayTextMessage("hello this is my message"));
+     }
 
-        switch (equippedObject)
-        {
+     public void HandleEquip(GameObject equippedObject)
+     {
+
+          if (!equippedObject.CompareTag("equip")) return;
+
+          switch (equippedObject)
+          {
             case var obj when obj == hairNet:
-                EquipItem(hairNet, faceMask);
-                // DisplayTextMessage("hairnet equipped!");
+                EquipItem(hairNet, faceMask, "Wear HairNet");
                 break;
             case var obj when obj == faceMask:
-                EquipItem(faceMask, cleanHood);
-                // DisplayTextMessage("facemask equipped!");
+                EquipItem(faceMask, cleanHood, "Equip Face Mask");
                 break;
             case var obj when obj == cleanHood:
-                EquipItem(cleanHood, goggles);
-                // DisplayTextMessage("cleanhood equipped!");
+                EquipItem(cleanHood, goggles, "Put on Clean Hood");
                 break;
             case var obj when obj == goggles:
-                EquipItem(goggles, bunnySuit);
-                // DisplayTextMessage("goggles equipped!");
+                EquipItem(goggles, bunnySuit, "Wear Goggles");
                 break;
             case var obj when obj == bunnySuit:
-                EquipItem(bunnySuit, boots);
-                // DisplayTextMessage("bunny suit equipped!");
+                EquipItem(bunnySuit, boots, "Put on Bunny Suit");
                 break;
             case var obj when obj == boots:
-                EquipItem(boots, gloves);
-                // DisplayTextMessage("boots equipped!");
+                EquipItem(boots, gloves, "Wear Boots");
                 break;
             case var obj when obj == gloves:
                 trigger.SetActive(true);
-                EquipItem(gloves, null);
-                // DisplayTextMessage("gloves equipped!");
+                EquipItem(gloves, null, "Put on Gloves");
                 break;
             default:
                 Debug.Log("Invalid equipment sequence.");
                 break;
-        }
+          }
 
-        // kill process of any current message
-        if (equipMessageCoroutine != null)
-        {
-            StopCoroutine(equipMessageCoroutine);
-        }
-        // queue up current message
-        if (currentMessageIndex < equipMessages.Length)
-        {
-            equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
-        }
-    }
+          // kill process of any current message
+          if (equipMessageCoroutine != null)
+          {
+               StopCoroutine(equipMessageCoroutine);
+          }
+          // queue up current message
+          if (currentMessageIndex < equipMessages.Length)
+          {
+               equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+          }
+     }
 
-    private void EquipItem(GameObject current, GameObject next)
-    {
-        current.SetActive(false);
+     private void EquipItem(GameObject current, GameObject next, string taskName)
+     {
+          current.SetActive(false);
 
-        if (next != null) next.tag = "equip";
+          if (next != null) next.tag = "equip";
 
-        //if (currentMessageIndex < equipMessages.Length)
-        //{
-        //     textDis();
-        //     StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
-        //     currentMessageIndex++;
-        //}
-    }
+          // if (currentMessageIndex < equipMessages.Length)
+          // {
+          //      textDis();
+          //      StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
+          //      currentMessageIndex++;
+          // }
 
-    private IEnumerator DisplayTextMessage(string message)
-    {
-        equipText.text = message;
-        equipText.gameObject.SetActive(true);
+          // Mark the task as completed in the task list
+          taskListUI.CompleteTask(taskName);
+     }
 
-        yield return FadeText(0f, 1f, fadeDuration); // Fade in
-        yield return new WaitForSeconds(displayDuration);
-        yield return FadeText(1f, 0f, fadeDuration); // Fade out
+     private IEnumerator DisplayTextMessage(string message)
+     {
+          equipText.text = message;
+          equipText.gameObject.SetActive(true);
 
-        equipText.gameObject.SetActive(false);
-    }
+          yield return StartCoroutine(FadeText(0f, 1f, fadeDuration)); // Fade in
+          yield return new WaitForSeconds(displayDuration);
+          yield return StartCoroutine(FadeText(1f, 0f, fadeDuration)); // Fade out
 
-    private IEnumerator FadeText(float startAlpha, float endAlpha, float duration)
-    {
-        float elapsed = 0f;
-        Color color = equipText.color;
+          equipText.gameObject.SetActive(false);
+     }
 
-        while (elapsed < duration)
-        {
-            elapsed += Time.deltaTime;
-            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
-            equipText.color = color;
-            yield return null;
-        }
+     private IEnumerator FadeText(float startAlpha, float endAlpha, float duration)
+     {
+          float elapsed = 0f;
+          Color color = equipText.color;
 
-        color.a = endAlpha;
-        equipText.color = color;
-    }
+          while (elapsed < duration)
+          {
+               elapsed += Time.deltaTime;
+               color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+               equipText.color = color;
+               yield return null;
+          }
+
+          color.a = endAlpha;
+          equipText.color = color;
+     }
 }
