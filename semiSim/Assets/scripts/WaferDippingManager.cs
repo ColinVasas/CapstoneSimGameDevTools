@@ -7,6 +7,8 @@ public class WaferDippingManager : MonoBehaviour
     private ChemicalSolution detectedSolution;
     private RecievingLiquidContainer beaker;
     [SerializeField] EtchingMaterial currentWaferMaterial;
+    
+    private WaferStatus waferStatus;
 
     [Header("Visuals")]
     [SerializeField] private ParticleSystem etchingSmoke;
@@ -21,9 +23,17 @@ public class WaferDippingManager : MonoBehaviour
     public static float SiliconEtchTime;
     public static float SiliconDioxideEtchTime;
     public static float PhotoresistEtchTime;
+    
+    // public getters for tiemr
+    public float EtchTime     => etchTime; 
+    public float EtchProgress => etchProgress;
+    public bool  IsEtching    => isEtching;
+    
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        waferStatus = GetComponent<WaferStatus>();
         SetEtchTime();
     }
     private void SetEtchTime()
@@ -111,6 +121,7 @@ public class WaferDippingManager : MonoBehaviour
             {
                 isSuccessfulEtch = false;
                 Debug.Log("Etch failed.");
+                if (waferStatus != null) waferStatus.Soil(); // flip flag if etch failed
             }
         }
     }
