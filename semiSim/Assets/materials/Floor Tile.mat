@@ -114,9 +114,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Grate_Density: 16
-    - _Grate_Size: 0.6
-    - _Inside_Border_Size: 0.6
+    - _Grate_Density: 40
+    - _Grate_Size: 6
+    - _Inside_Border_Size: 0.18
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -129,6 +129,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _Tile_Size: 0.3048
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
