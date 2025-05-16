@@ -30,7 +30,7 @@ The traditional training bottleneck has become increasingly problematic with new
 
 ## What our project does
 
-![][image2]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi2.jpg)
 Figure 2; Close up of the spin coater with a wafer being placed
 
 To address the growing demand, we are developing a Virtual Reality cleanroom training simulation. Our simulation will provide a risk-free training environment to educate trainees, students, and other interested parties on the general cleanroom production process. 
@@ -50,7 +50,7 @@ Though you can easily find some products that are designed to help with the actu
 
 # Core Project Features
 
-![][image3]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi3.jpg)
 Figure 3; image showing the equip feature with UI
 
 Our project is a first-person virtual reality training simulator designed to guide users through a tutorial that demonstrates the main components of the semiconductor fabrication process from station to station. Because every clean room is different and professional clean rooms are not open to the public, our simulation does not comprehensively cover all clean room procedures. However, the tasks it does include are generally applicable to clean rooms in general.
@@ -63,12 +63,12 @@ The main software development programs used were Unity for the environment and V
 
 Blender was also used for modeling the machines and various objects in space. All models made will be included in this Github repository. 
 
-![][image4]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi4.jpg)
 Figure 4; Chart of the technologies used in the screenshot.
 
 ### General Architecture
 
-![][image5]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi5.jpg)
 Figure 5; Flowchart of the general flow of code through the production process.
 
 In Figure 5, above, you can see how coded scripts are implemented into the project. They start in Visual Studio, or any other C\# compatible coding application, and are then implemented in Unity by attaching them to an object. That object is then usable in the Unity scene for the desired purpose.  
@@ -141,7 +141,7 @@ We recommend having system specifications of at least:
 ### To download the project and run using Unity Hub:
 
 You will need to download and install Unity and this Project.   
-![][image6]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi6.jpg) 
 Figure 6; screenshot of the top of the project 
 
 Before downloading, make sure that the main branch is selected at the top of this project.
@@ -154,7 +154,7 @@ Additionally, if you know how to clone repositories using [Git](https://git-scm.
 
 ### To run the project: 
 
-![][image7]  
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi7.jpg) 
 Figure 7; screenshot of Unity Hub’s projects tab with semiSim project
 
 Open Unity Hub; If it is your first time trying to run the project, you will need to select “Add” towards the top. Then “Add project from disk”, navigate to where you extracted the .zip, and select the “semiSim” folder. 
