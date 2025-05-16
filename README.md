@@ -30,7 +30,7 @@ The traditional training bottleneck has become increasingly problematic with new
 
 ## What our project does
 
-![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi2.jpg)
+![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi2.png)
 Figure 2; Close up of the spin coater with a wafer being placed
 
 To address the growing demand, we are developing a Virtual Reality cleanroom training simulation. Our simulation will provide a risk-free training environment to educate trainees, students, and other interested parties on the general cleanroom production process. 
