@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor Tile
-  m_Shader: {fileID: -6465566751694194690, guid: 1f000dd57c7d7e382ac20fb4c767b5a7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 387330515ae7af8aa98e2692da45653c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -98,9 +98,10 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Angle_Smooth_Factor: 0.5
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _Border_Size: 0.00635
+    - _Border_Size: 0.003175
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -111,18 +112,22 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Far_Smooth_Factor: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Grate_Density: 40
-    - _Grate_Size: 6
-    - _Inside_Border_Size: 0.18
+    - _Grate_Density: 27
+    - _Grate_Size: 0.9
+    - _Inside_Border_Size: 0.0508
     - _Metallic: 0
+    - _Near_Smooth_Factor: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _Smooth_Distance_Factor: 1.5
+    - _Smoothing_Factor: 0.25
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -138,7 +143,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Floor_Color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-    - _Grate_Color: {r: 0.17254902, g: 0.17254902, b: 0.17254902, a: 1}
+    - _Grate_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
