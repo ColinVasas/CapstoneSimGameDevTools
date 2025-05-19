@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Interactable : MonoBehaviour
 {
     public GameObject lid;
+    public Material newMaterial;
     public GameObject triggerZoneChuck;
     public GameObject triggerZoneWafer;
     public GameObject triggerZoneHotPlate;
@@ -142,6 +143,17 @@ public class Interactable : MonoBehaviour
                 triggerZonePI.SetActive(true);
                 //cusRotation = Quaternion.Euler(0, 0, 0);
                 curWafer = Instantiate(wafer, waferLocation.position, Quaternion.Euler(0, 0, 0));
+                Renderer renderer = curWafer.GetComponent<Renderer>();
+                if(renderer != null)
+                {
+                    Material[] mats = renderer.materials;
+                    if(mats.Length >= 2)
+                    {
+                        mats[0] = newMaterial;
+                        mats[1] = newMaterial;
+                    }
+                    renderer.materials = mats;
+                }
                 currentState = SpinCoaterState.PlacePI;
                 break;
             case SpinCoaterState.PlacePI:
