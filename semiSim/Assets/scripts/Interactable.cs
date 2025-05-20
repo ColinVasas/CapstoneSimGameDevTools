@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Interactable : MonoBehaviour
 {
@@ -26,6 +27,29 @@ public class Interactable : MonoBehaviour
     private float doneTimer = 0f;
     private float maxDoneTimer = 5f;
 
+    public TextMeshProUGUI equipText; // Single TMP UI element for all messages
+    public float fadeDuration = 0.5f;
+    public float displayDuration = 1.5f;
+    private string[] equipMessages = new string[]
+    {
+        "Go to the spincoater,\nthen press the red button.",
+        "Grab a black chuck from\nthe table to the right and\nput it in the spincoater.",
+        "Grab the spray gun from\nthe table to the right and\nclean a white wafer.",
+        "Now take the wafer and\nplace it in the spincoater.",
+        "Grab a pipette from the table\nand dip it in the PMMA.",
+        "Apply the PMMA to the spincoater.",
+        "Close the spincoater\n(via the redbutton).",
+        "Start the spincoater\n(with the same button).",
+        "Open the spincoater.",
+        "Take the wafer out and\nplace it on the hotplate.",
+        "Now take the wafer and\nplace it in the spincoater again.",
+        "Grab another pipette and dip\nit in the PI",
+        "Apply the PI to the spincoater",
+        "Close the spincoater\n(via the redbutton).",
+        "Start the spincoater\n(with the same button).",
+        "All done here! Head to\nthe Wet Etching room!"
+    };
+
     private enum SpinCoaterState
     {
         OpenSpinCoater,
@@ -43,6 +67,37 @@ public class Interactable : MonoBehaviour
     }
 
     private SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
+
+    // yoinked from equipManager.cs
+    private IEnumerator DisplayTextMessage(string message)
+    {
+        equipText.text = message;
+        equipText.gameObject.SetActive(true);
+
+        yield return FadeText(0f, 1f, fadeDuration); // Fade in
+        yield return new WaitForSeconds(displayDuration);
+        yield return FadeText(1f, 0f, fadeDuration); // Fade out
+
+        equipText.gameObject.SetActive(false);
+    }
+    // also yoinked from equipManager.cs
+    private IEnumerator FadeText(float startAlpha, float endAlpha, float duration)
+    {
+        float elapsed = 0f;
+        Color color = equipText.color;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            color.a = Mathf.Lerp(startAlpha, endAlpha, elapsed / duration);
+            equipText.color = color;
+            yield return null;
+        }
+
+        color.a = endAlpha;
+        equipText.color = color;
+    }
+
     private void Awake()
     {
         triggerZoneChuck.SetActive(false);
