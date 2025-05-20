@@ -30,11 +30,15 @@ public class Interactable : MonoBehaviour
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
     public float displayDuration = 1.5f;
+
+    private Coroutine equipMessageCoroutine;
+    private int currentMessageIndex = 0;
+
     private string[] equipMessages = new string[]
     {
         "Go to the spincoater,\nthen press the red button.",
-        "Grab a black chuck from\nthe table to the right and\nput it in the spincoater.",
-        "Grab the spray gun from\nthe table to the right and\nclean a white wafer.",
+        "Grab a chuck (large black plate) from\nthe table to the right and\nput it in the spincoater.",
+        "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).",
         "Now take the wafer and\nplace it in the spincoater.",
         "Grab a pipette from the table\nand dip it in the PMMA.",
         "Apply the PMMA to the spincoater.",
@@ -47,7 +51,7 @@ public class Interactable : MonoBehaviour
         "Apply the PI to the spincoater",
         "Close the spincoater\n(via the redbutton).",
         "Start the spincoater\n(with the same button).",
-        "All done here! Head to\nthe Wet Etching room!"
+        "All done here! Head to\nthe Wet Etching room!\nLook for the door."
     };
 
     private enum SpinCoaterState
@@ -235,6 +239,17 @@ public class Interactable : MonoBehaviour
                 lid.SetActive(false);
                 Debug.Log("done.");
                 break;
+        }
+
+        // kill process of any current message
+        if (equipMessageCoroutine != null)
+        {
+            StopCoroutine(equipMessageCoroutine);
+        }
+        // queue up current message
+        if (currentMessageIndex < equipMessages.Length)
+        {
+            equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
         }
     }
 

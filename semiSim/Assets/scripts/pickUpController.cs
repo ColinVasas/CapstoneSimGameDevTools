@@ -51,9 +51,34 @@ public class pickUpController : MonoBehaviour
                               StopMessage();
                               messageCoroutine = StartCoroutine(ShowPersistentMessage("Press 'E' to equip"));
                          }
+                         // else if heldObj is the chuck
+                         else if (PickupObject(hit.transform.gameObject) && heldObj.name == "chuck")
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a chuck"));
+                         }
+                         // else if heldObj is the wafer
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || hit.transform.CompareTag("coldWafer")))
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a wafer"));
+                         }
+                         // else if heldObj is a pipet
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "pipette_cap" || heldObj.name == "pipette_cap (1)"))
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a pipet"));
+                         }
+                         // else if heldObj is a spay gun
+                         else if (PickupObject(hit.transform.gameObject) && heldObj.name == "spray gun")
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a spray gun"));
+                         }
                          else if (heldObj != null)
                          {
                               StopMessage();
+                              Debug.Log(heldObj.name);
                               messageCoroutine = StartCoroutine(ShowPersistentMessage("Whoops! Wrong object!\nLeft click to put down"));
                          }
                     }
