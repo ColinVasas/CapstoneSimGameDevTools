@@ -696,6 +696,7 @@ MonoBehaviour:
   pourAngleThreshhold: 80
   pourRate: 114
   maximumPourDistance: 1
+  yScaleMul: 2.5
   PouringStreamMaterial: {fileID: 2100000, guid: 0c09e2ba5eed2c043ac9c7e8219f49b3, type: 2}
 --- !u!65 &1722569985063926311
 BoxCollider:

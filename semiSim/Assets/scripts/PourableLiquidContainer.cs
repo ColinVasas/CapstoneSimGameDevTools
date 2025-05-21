@@ -17,6 +17,7 @@ public class PourableLiquidContainer : MonoBehaviour
     [SerializeField] float pourAngleThreshhold = 80f;
     public float pourRate = 10f; // mL per second
     [SerializeField] float maximumPourDistance = 1f;
+    [SerializeField] float yScaleMul = 1.5f;
 
     private GameObject activeStream;
     private RecievingLiquidContainer targetContainer;
@@ -149,7 +150,7 @@ public class PourableLiquidContainer : MonoBehaviour
 
             // Set the scale of the stream based on the distance to the collider
             Vector3 newScale = activeStream.transform.localScale;
-            newScale.y = distanceToCollider;  // Adjust Y scale to stretch the stream
+            newScale.y = distanceToCollider * yScaleMul;  // Adjust Y scale to stretch the stream
             activeStream.transform.localScale = newScale;
 
             // Update the position so that the top of the stream stays at the pour point
