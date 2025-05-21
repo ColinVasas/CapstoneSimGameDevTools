@@ -51,29 +51,35 @@ public class pickUpController : MonoBehaviour
                               StopMessage();
                               messageCoroutine = StartCoroutine(ShowPersistentMessage("Press 'E' to equip"));
                          }
-                         // else if heldObj is the chuck
+                         // chuck
                          else if (PickupObject(hit.transform.gameObject) && heldObj.name == "chuck")
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a chuck"));
                          }
-                         // else if heldObj is the wafer
-                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || hit.transform.CompareTag("coldWafer")))
+                         // wafer
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || hit.transform.CompareTag("coldWafer") || heldObj.name == "wafer (2)"))
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a wafer"));
                          }
-                         // else if heldObj is a pipet
+                         // pipet
                          else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "pipette_cap" || heldObj.name == "pipette_cap (1)"))
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a pipet"));
                          }
-                         // else if heldObj is a spay gun
+                         // spay gun
                          else if (PickupObject(hit.transform.gameObject) && heldObj.name == "spray gun")
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a spray gun"));
+                         }
+                         // beaker
+                         else if (PickupObject(hit.transform.gameObject) && heldObj.name == "Beaker")
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a beaker"));
                          }
                          else if (heldObj != null)
                          {

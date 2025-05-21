@@ -41,6 +41,7 @@ public class Interactable : MonoBehaviour
         "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).",
         "Now take the wafer and\nplace it in the spincoater.",
         "Grab a pipette from the table\nand dip it in the PMMA.",
+        "Press the big red button again.",
         "Apply the PMMA to the spincoater.",
         "Close the spincoater\n(via the redbutton).",
         "Start the spincoater\n(with the same button).",
@@ -240,6 +241,9 @@ public class Interactable : MonoBehaviour
                 Debug.Log("done.");
                 break;
         }
+
+        // this was ported from equipManager.cs but doesn't seem to work,
+        // I may need to try a different approach...
 
         // kill process of any current message
         if (equipMessageCoroutine != null)
