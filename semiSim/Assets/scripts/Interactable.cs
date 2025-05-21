@@ -38,20 +38,18 @@ public class Interactable : MonoBehaviour
     {
         "Go to the spincoater,\nthen press the red button.",
         "Grab a chuck (large black plate) from\nthe table to the right and\nput it in the spincoater.",
-        "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).",
-        "Now take the wafer and\nplace it in the spincoater.",
+        "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).\nThen place the wafer in\nthe spincoater.",
+        // "Now take the wafer and\nplace it in the spincoater.",
         "Grab a pipette from the table\nand dip it in the PMMA.",
         "Press the big red button again.",
         "Apply the PMMA to the spincoater.",
-        "Close the spincoater\n(via the redbutton).",
-        "Start the spincoater\n(with the same button).",
+        "Start the spincoater\n(via the red button).",
         "Open the spincoater.",
         "Take the wafer out and\nplace it on the hotplate.",
         "Now take the wafer and\nplace it in the spincoater again.",
         "Grab another pipette and dip\nit in the PI",
         "Apply the PI to the spincoater",
-        "Close the spincoater\n(via the redbutton).",
-        "Start the spincoater\n(with the same button).",
+        "Start the spincoater\n(via the red button).",
         "All done here! Head to\nthe Wet Etching room!\nLook for the door."
     };
 
@@ -72,6 +70,25 @@ public class Interactable : MonoBehaviour
     }
 
     private SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
+
+    void Start()
+    {
+        //// kill process of any current message
+        //if (equipMessageCoroutine != null)
+        //{
+        //    StopCoroutine(equipMessageCoroutine);
+        //}
+        //// queue up current message
+        //if (currentMessageIndex < equipMessages.Length)
+        //{
+        //    equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+        //}
+        equipText.text = equipMessages[0];
+        equipText.gameObject.SetActive(true);
+        equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+        //StopCoroutine(equipMessageCoroutine);
+        //equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+    }
 
     // yoinked from equipManager.cs
     private IEnumerator DisplayTextMessage(string message)

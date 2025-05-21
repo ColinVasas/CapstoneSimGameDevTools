@@ -7183,7 +7183,7 @@ MonoBehaviour:
   hasPMMA: 1
   hasPI: 1
   done: 0
-  equipText: {fileID: 0}
+  equipText: {fileID: 1673636328}
   fadeDuration: 0.5
   displayDuration: 1.5
 --- !u!1 &454096727
@@ -8943,6 +8943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
+      propertyPath: equipText
+      value: 
+      objectReference: {fileID: 1673636328}
     - target: {fileID: 772535839909426504, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
       propertyPath: m_Name
       value: spincoaterVR (1)
@@ -12322,6 +12326,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7781374191924118470, guid: 2b6544cac4a158f47b85f91185d804d7, type: 3}
     - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
+      propertyPath: equipText
+      value: 
+      objectReference: {fileID: 1673636328}
+    - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
       propertyPath: triggerZonePI
       value: 
       objectReference: {fileID: 1620386930}
@@ -13502,6 +13510,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8847860348373117551, guid: 883ba144967f6f441a5b7eb9a3eb0254, type: 3}
+      propertyPath: equipText
+      value: 
+      objectReference: {fileID: 1673636328}
     - target: {fileID: 8847860348373117551, guid: 883ba144967f6f441a5b7eb9a3eb0254, type: 3}
       propertyPath: newMaterial
       value: 
@@ -23916,6 +23928,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5225648872416115729, guid: e2c48881153f6ec4bb5b217eade2cf78, type: 3}
+      propertyPath: equipText
+      value: 
+      objectReference: {fileID: 1673636328}
     - target: {fileID: 5616461659117298628, guid: e2c48881153f6ec4bb5b217eade2cf78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.56
