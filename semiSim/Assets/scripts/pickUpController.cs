@@ -203,6 +203,8 @@ public class pickUpController : MonoBehaviour
           fadeCoroutine = null;
           persistentCoroutine = null;
 
+        if (equipText == null)
+            return;
           equipText.gameObject.SetActive(false);
           var c = equipText.color;
           c.a = 0f;
