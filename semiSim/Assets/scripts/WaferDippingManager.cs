@@ -6,10 +6,13 @@ public class WaferDippingManager : MonoBehaviour
 
     private ChemicalSolution detectedSolution;
     private RecievingLiquidContainer beaker;
+
+    [SerializeField] private WaferUI waferUI;
     [SerializeField] EtchingMaterial currentWaferMaterial;
 
     [Header("Visuals")]
     [SerializeField] private ParticleSystem etchingSmoke;
+   
 
     private float etchTime;
     private float etchProgress = 0f;
@@ -17,6 +20,7 @@ public class WaferDippingManager : MonoBehaviour
     private bool isSuccessfulEtch = false;
 
     [Header("Set the global etch times for materials")]
+    
     public static float AluminimEtchTime;
     public static float SiliconEtchTime;
     public static float SiliconDioxideEtchTime;
@@ -24,7 +28,11 @@ public class WaferDippingManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         SetEtchTime();
+        waferUI.ShowWaferInfo(gameObject.name, currentWaferMaterial);
+        Debug.Log("waferUI ref is: " + waferUI);
+
     }
     private void SetEtchTime()
     {
@@ -40,7 +48,7 @@ public class WaferDippingManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        waferUI.ShowWaferInfo(gameObject.name, currentWaferMaterial);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -74,7 +82,10 @@ public class WaferDippingManager : MonoBehaviour
             if (!isEtching)
             {
                 isEtching = true;
+               
+                waferUI.ShowWaferInfo(gameObject.name, currentWaferMaterial);
                 StartCoroutine(Etch());
+
                 if (etchingSmoke != null)
                 {
                     etchingSmoke.Play();
@@ -90,11 +101,16 @@ public class WaferDippingManager : MonoBehaviour
     }
     private IEnumerator Etch()
     {
-        while (isEtching)
+        float elapsed = 0f;
+
+        while (isEtching && elapsed <= etchTime)
         {
-            etchProgress += Time.deltaTime;
+            waferUI.UpdateEtchProgress(elapsed, etchTime, currentWaferMaterial);
+            elapsed += Time.deltaTime;
             yield return null;
         }
+
+        waferUI.UpdateEtchProgress(etchTime, etchTime, currentWaferMaterial);
     }
     private void StopEtch()
     {

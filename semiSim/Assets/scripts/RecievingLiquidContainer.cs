@@ -67,7 +67,7 @@ public class RecievingLiquidContainer : MonoBehaviour
         foreach (var liquid in liquids) {
             totalAmount += liquid.Value.amount;
         }
-        Debug.Log("total liquid amount: " + totalAmount);
+       // Debug.Log("total liquid amount: " + totalAmount);
 
         return totalAmount;
     }

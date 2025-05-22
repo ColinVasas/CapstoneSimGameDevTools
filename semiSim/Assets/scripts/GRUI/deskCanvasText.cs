@@ -38,6 +38,7 @@ public class deskCanvasText : MonoBehaviour
 
      private IEnumerator DisplayTextMessage(string message)
      {
+        
           equipText.text = message;
           equipText.gameObject.SetActive(true);
 
