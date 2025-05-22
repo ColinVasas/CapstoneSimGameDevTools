@@ -58,7 +58,8 @@ public class pickUpController : MonoBehaviour
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a chuck"));
                          }
                          // wafer
-                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || hit.transform.CompareTag("coldWafer") || heldObj.name == "wafer (2)"))
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || 
+                         hit.transform.CompareTag("coldWafer") || heldObj.name == "wafer (2)" || heldObj.name == "WaferPrefabTesting"))
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a wafer"));
@@ -81,6 +82,14 @@ public class pickUpController : MonoBehaviour
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a beaker"));
                          }
+                         // digital clock
+                         else if (PickupObject(hit.transform.gameObject) && heldObj.name == "DigitalClock")
+                         { 
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a digital clock"));
+                         }
+                         // 
+                         // this is for the gowning room procedures
                          else if (heldObj != null)
                          {
                               StopMessage();

@@ -29,14 +29,23 @@ public class Interactable : MonoBehaviour
 
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
-    public float displayDuration = 1.5f;
+    public float displayDuration = 3.0f;
 
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
 
+    public float delayBetweenTexts = 0.5f;
+
+    private string[] oneMSG = new string[]
+    {
+        "",
+        "Welcome to the yellow room!",
+        "Go to the spincoater,\nthen press the red button."
+    };
+
     private string[] equipMessages = new string[]
     {
-        "Go to the spincoater,\nthen press the red button.",
+        // "Go to the spincoater,\nthen press the red button.",
         "Grab a chuck (large black plate) from\nthe table to the right and\nput it in the spincoater.",
         "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).\nThen place the wafer in\nthe spincoater.",
         // "Now take the wafer and\nplace it in the spincoater.",
@@ -70,24 +79,29 @@ public class Interactable : MonoBehaviour
     }
 
     private SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
+    private Coroutine introCoroutine;
+
+    IEnumerator StartUp(int i)
+    {
+        yield return new WaitForSeconds(i);
+    }
 
     void Start()
     {
-        //// kill process of any current message
-        //if (equipMessageCoroutine != null)
-        //{
-        //    StopCoroutine(equipMessageCoroutine);
-        //}
-        //// queue up current message
-        //if (currentMessageIndex < equipMessages.Length)
-        //{
-        //    equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
-        //}
-        equipText.text = equipMessages[0];
-        equipText.gameObject.SetActive(true);
-        equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
-        //StopCoroutine(equipMessageCoroutine);
-        //equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+        // temporarily commenting this out before pushing since it's not working yet
+
+        // introCoroutine = StartCoroutine(DisplayTextSequence());
+    }
+
+    private IEnumerator DisplayTextSequence()
+    {
+        foreach (string message in oneMSG)
+        {
+            // if (stopIntro) yield break;
+
+            yield return StartCoroutine(DisplayTextMessage(message));
+            yield return new WaitForSeconds(delayBetweenTexts);
+        }
     }
 
     // yoinked from equipManager.cs
@@ -128,6 +142,16 @@ public class Interactable : MonoBehaviour
         triggerZoneEtc.SetActive(true);
         triggerZoneHotPlate.SetActive(false);
         triggerZonePI.SetActive(false);
+
+        // stop tryin to disable my text canvasText.cs >:(
+        var ct = FindObjectOfType<canvasText>();
+        if (ct != null)
+        {
+            // stop any coroutines already queued on it (just in case)
+            ct.StopAllCoroutines();
+            // disable it so its Start() never runs
+            ct.enabled = false;
+        }
     }
 
     public void Interact()
@@ -259,19 +283,18 @@ public class Interactable : MonoBehaviour
                 break;
         }
 
-        // this was ported from equipManager.cs but doesn't seem to work,
-        // I may need to try a different approach...
+        // temporarily commenting this out before pushing since it's not working yet
 
-        // kill process of any current message
-        if (equipMessageCoroutine != null)
-        {
-            StopCoroutine(equipMessageCoroutine);
-        }
-        // queue up current message
-        if (currentMessageIndex < equipMessages.Length)
-        {
-            equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
-        }
+        //// kill process of any current message
+        //if (equipMessageCoroutine != null)
+        //{
+        //    StopCoroutine(equipMessageCoroutine);
+        //}
+        //// queue up current message
+        //if (currentMessageIndex < equipMessages.Length)
+        //{
+        //    equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
+        //}
     }
 
     public void ActivateChuck()
