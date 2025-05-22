@@ -29,7 +29,8 @@ public class equipManVr : MonoBehaviour
 
      private XRGrabInteractable currentObj;
 
-     public GameObject[] textObjects;  
+     public GameObject textObject;  
+
      private int currentTextIndex = 0;
 
 
@@ -43,10 +44,8 @@ public class equipManVr : MonoBehaviour
 
      private void Start()
      {
-          foreach (GameObject textObject in textObjects)
-          {
-               textObject.SetActive(false);
-          }
+          textObject.SetActive(false);
+
 
           hairNet.tag = "equip";
           faceMask.tag = "Untagged";
@@ -74,29 +73,35 @@ public class equipManVr : MonoBehaviour
 
      private void HandleEquip()
      {
-          if (currentObj == null || !currentObj.CompareTag("equip")) return;
+          if (currentObj == null || !currentObj.CompareTag("equip"))
+          {
+               EquipItem(null, null, "Woop's wrong Item!!!");
+               return; 
+          }
 
           GameObject equippedObject = currentObj.gameObject;
 
           if (equippedObject == hairNet)
-               EquipItem(hairNet, faceMask, "HairNet Equipped!");
+               EquipItem(hairNet, faceMask, "Find and put on\nthe face mask");
           else if (equippedObject == faceMask)
-               EquipItem(faceMask, cleanHood, "FaceMask Equipped!");
+               EquipItem(faceMask, cleanHood, "Now for the clean hood");
           else if (equippedObject == cleanHood)
-               EquipItem(cleanHood, goggles, "CleanHood Equipped!");
+               EquipItem(cleanHood, goggles, "Goggles are next");
           else if (equippedObject == goggles)
-               EquipItem(goggles, bunnySuit, "Goggles Equipped!");
+               EquipItem(goggles, bunnySuit, "Now for the hazmat suit");
           else if (equippedObject == bunnySuit)
-               EquipItem(bunnySuit, boots, "BunnySuit Equipped!");
+               EquipItem(bunnySuit, boots, "Don't forget your boots");
           else if (equippedObject == boots)
-               EquipItem(boots, gloves, "Boots Equipped!");
+               EquipItem(boots, gloves, "Lastly, put on some gloves");
           else if (equippedObject == gloves)
-               EquipItem(gloves, null, "Gloves Equipped!");
+               EquipItem(gloves, null, "Alright. Now head to the door\nto enter the Yellow Room!");
      }
 
      private void EquipItem(GameObject current, GameObject next, string message)
      {
           current.SetActive(false);
+          StartCoroutine(DisplayTextSequence(message));
+
           if (next != null)
           {
                next.tag = "equip";
@@ -105,26 +110,25 @@ public class equipManVr : MonoBehaviour
           {
                trigger.SetActive(true);
           }
-          if (currentTextIndex < textObjects.Length)
-          {
-               StartCoroutine(DisplayTextSequence(textObjects[currentTextIndex]));
-               currentTextIndex++;
-          }
      }
 
-     private IEnumerator DisplayTextSequence(GameObject textObject)
+     private IEnumerator DisplayTextSequence(string message)
      {
           textObject.SetActive(true);
-          yield return StartCoroutine(FadeText(textObject, 0f, 1f, fadeDuration));
+
+          TextMeshProUGUI textComponent = textObject.GetComponent<TextMeshProUGUI>();
+          textComponent.text = message;
+
+          yield return StartCoroutine(FadeText(textComponent, 0f, 1f, fadeDuration));
           yield return new WaitForSeconds(displayDuration);
-          yield return StartCoroutine(FadeText(textObject, 1f, 0f, fadeDuration));
+          yield return StartCoroutine(FadeText(textComponent, 1f, 0f, fadeDuration));
+
           textObject.SetActive(false);
      }
 
-     private IEnumerator FadeText(GameObject textObject, float startAlpha, float endAlpha, float duration)
+     private IEnumerator FadeText(TextMeshProUGUI textComponent, float startAlpha, float endAlpha, float duration)
      {
           float elapsed = 0f;
-          TextMeshProUGUI textComponent = textObject.GetComponent<TextMeshProUGUI>();
           Color color = textComponent.color;
 
           while (elapsed < duration)
