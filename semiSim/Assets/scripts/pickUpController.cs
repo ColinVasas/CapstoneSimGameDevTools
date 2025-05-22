@@ -76,19 +76,29 @@ public class pickUpController : MonoBehaviour
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a spray gun"));
                          }
-                         // beaker
+                         // not displaying any text for beaker
                          else if (PickupObject(hit.transform.gameObject) && heldObj.name == "Beaker")
                          {
-                              StopMessage();
-                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a beaker"));
+                              //StopMessage();
+                              //messageCoroutine = StartCoroutine(DisplayTextMessage("This is a beaker"));
                          }
-                         // digital clock
+                         // not displaying any text for digital clock
                          else if (PickupObject(hit.transform.gameObject) && heldObj.name == "DigitalClock")
                          { 
-                              StopMessage();
-                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is a digital clock"));
+                              //StopMessage();
+                              //messageCoroutine = StartCoroutine(DisplayTextMessage("This is a digital clock"));
                          }
-                         // 
+                         // not displaying any text for bottles
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "bottle" || heldObj.name == "Bottle" || 
+                         heldObj.name == "Bottle (4)" || heldObj.name == "Bottle (5)" || heldObj.name == "Bottle (6)" || 
+                         heldObj.name == "Bottle (7)"))
+                         {
+                              //StopMessage();
+                              //messageCoroutine = StartCoroutine(DisplayTextMessage("This is a bottle"));
+                              // "Dear god!"
+                              // "There's more."
+                              // "No!"
+                         }
                          // this is for the gowning room procedures
                          else if (heldObj != null)
                          {
