@@ -199,15 +199,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: db179bd9cd2319843bc8a4241f2beeae, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1702720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: db179bd9cd2319843bc8a4241f2beeae, type: 3}
   m_PrefabInstance: {fileID: 1702719}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1702720
@@ -232,9 +229,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -288,15 +282,12 @@ BoxCollider:
   m_Center: {x: 1.8813739e-11, y: -0.00040230266, z: 0.00042895498}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &1702725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: db179bd9cd2319843bc8a4241f2beeae, type: 3}
   m_PrefabInstance: {fileID: 1702719}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &1702725
@@ -315,9 +306,6 @@ Transform:
   m_Father: {fileID: 380684492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -469,10 +457,7 @@ MonoBehaviour:
   m_FarAttachMode: 0
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &1702727
@@ -529,9 +514,6 @@ MeshFilter:
   m_GameObject: {fileID: 1702720}
   m_Mesh: {fileID: 5433102353385186542, guid: db179bd9cd2319843bc8a4241f2beeae, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -585,10 +567,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -754,15 +733,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 7f6e4cae2110b5f47be7d1d3c3959e43, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &99833261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f6e4cae2110b5f47be7d1d3c3959e43, type: 3}
   m_PrefabInstance: {fileID: 99833260}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &99833261
@@ -787,9 +763,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -965,15 +938,12 @@ Rigidbody:
   m_CollisionDetection: 0
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &99833265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7f6e4cae2110b5f47be7d1d3c3959e43, type: 3}
   m_PrefabInstance: {fileID: 99833260}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &99833265
@@ -1046,9 +1016,6 @@ MeshFilter:
   m_GameObject: {fileID: 99833261}
   m_Mesh: {fileID: -8348165731046832307, guid: 7f6e4cae2110b5f47be7d1d3c3959e43, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1357,14 +1324,9 @@ MonoBehaviour:
       m_Calls: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_text: 'Start by finding a hairnet
 
     on the counter to the right'
-=======
-  m_text: "Why don\u2019t you go find a hairnet\u2026 I think they\u2019re on the
-    counter to the right\r\n"
->>>>>>> Stashed changes
 =======
   m_text: "Why don\u2019t you go find a hairnet\u2026 I think they\u2019re on the
     counter to the right\r\n"
@@ -1687,10 +1649,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &217812041
@@ -1780,9 +1739,6 @@ MeshFilter:
   m_GameObject: {fileID: 217812041}
   m_Mesh: {fileID: 2534964839176971238, guid: 84f05d7b50c7e8b4fa8ff6cdbbbfc08b, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2035,10 +1991,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &270799559
@@ -2314,9 +2267,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 277683301}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2431,7 +2381,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &328798387 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
@@ -2443,8 +2392,6 @@ Transform:
   m_PrefabInstance: {fileID: 232709158}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &328798387
@@ -2482,9 +2429,6 @@ Transform:
   m_Father: {fileID: 592270202}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2511,10 +2455,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0, z: 0.0025921718}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &328798392
@@ -2571,9 +2512,6 @@ MeshFilter:
   m_GameObject: {fileID: 328798387}
   m_Mesh: {fileID: -5495902117074765545, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -2895,10 +2833,7 @@ RectTransform:
   - {fileID: 965998942}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   - {fileID: 1219319964}
@@ -2911,9 +2846,6 @@ RectTransform:
   - {fileID: 1140775149}
   - {fileID: 732542733}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3041,10 +2973,7 @@ MonoBehaviour:
   - {fileID: 152135298}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - {fileID: 965998941}
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -3162,10 +3091,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &525855120
@@ -3256,9 +3182,6 @@ MeshFilter:
   m_GameObject: {fileID: 525855120}
   m_Mesh: {fileID: -2073062303095333546, guid: 84f05d7b50c7e8b4fa8ff6cdbbbfc08b, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3299,7 +3222,6 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &622214497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
@@ -3311,8 +3233,6 @@ Transform:
   m_PrefabInstance: {fileID: 748908398}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &622214497
@@ -3350,9 +3270,6 @@ Transform:
   m_Father: {fileID: 592270202}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3379,10 +3296,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0, z: 0.0025921718}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &622214502
@@ -3439,9 +3353,6 @@ MeshFilter:
   m_GameObject: {fileID: 622214497}
   m_Mesh: {fileID: -5495902117074765545, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3654,10 +3565,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &732542732
@@ -3797,9 +3705,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 732542732}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -3887,7 +3792,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: aad47b124183ec845b92555f427cd7d8, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &743630365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aad47b124183ec845b92555f427cd7d8, type: 3}
@@ -3899,8 +3803,6 @@ Transform:
   m_PrefabInstance: {fileID: 743630364}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &743630365
@@ -3940,9 +3842,6 @@ Transform:
   m_Father: {fileID: 380684492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4142,10 +4041,7 @@ BoxCollider:
   m_Center: {x: -0.00044901707, y: 0.00015885636, z: -0.007891301}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &743630370
@@ -4202,9 +4098,6 @@ MeshFilter:
   m_GameObject: {fileID: 743630365}
   m_Mesh: {fileID: 3530945768078225325, guid: aad47b124183ec845b92555f427cd7d8, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4518,15 +4411,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 35515da194c7c014885313485168f023, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &964492370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35515da194c7c014885313485168f023, type: 3}
   m_PrefabInstance: {fileID: 964492369}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &964492370
@@ -4551,9 +4441,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4729,15 +4616,12 @@ Rigidbody:
   m_CollisionDetection: 0
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &964492374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35515da194c7c014885313485168f023, type: 3}
   m_PrefabInstance: {fileID: 964492369}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &964492374
@@ -4811,9 +4695,6 @@ MeshFilter:
   m_GameObject: {fileID: 964492370}
   m_Mesh: {fileID: -462981019419857548, guid: 35515da194c7c014885313485168f023, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -4876,14 +4757,8 @@ MonoBehaviour:
       m_Calls: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_text: "Once you find it, hold the \ntrigger at your middle finger,\nthen press
     the trigger at the \ntop\n"
-=======
-  m_text: 'Face Masks should be in the bin next to the hairnets
-
-'
->>>>>>> Stashed changes
 =======
   m_text: 'Face Masks should be in the bin next to the hairnets
 
@@ -5056,15 +4931,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 7603678aae540814f97adaf62389be99, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &970320237 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7603678aae540814f97adaf62389be99, type: 3}
   m_PrefabInstance: {fileID: 970320236}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &970320237
@@ -5089,9 +4961,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5267,15 +5136,12 @@ BoxCollider:
   m_Center: {x: -0.000037241814, y: 0.00033132482, z: -0.0000016831616}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &970320241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7603678aae540814f97adaf62389be99, type: 3}
   m_PrefabInstance: {fileID: 970320236}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &970320241
@@ -5349,9 +5215,6 @@ MeshFilter:
   m_GameObject: {fileID: 970320237}
   m_Mesh: {fileID: 8759146800179093436, guid: 7603678aae540814f97adaf62389be99, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5415,10 +5278,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -5584,15 +5444,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 463b1924b96083d499ed15c5bda420c5, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1051685147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 463b1924b96083d499ed15c5bda420c5, type: 3}
   m_PrefabInstance: {fileID: 1051685146}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1051685147
@@ -5617,9 +5474,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -5795,15 +5649,12 @@ BoxCollider:
   m_Center: {x: 0, y: 0.00012501537, z: -0.00019809365}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &1051685151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 463b1924b96083d499ed15c5bda420c5, type: 3}
   m_PrefabInstance: {fileID: 1051685146}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &1051685151
@@ -6152,9 +6003,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1140775148}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6208,10 +6056,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -6295,10 +6140,7 @@ MeshFilter:
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1219319963
@@ -6576,9 +6418,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1235436625}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -6632,10 +6471,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -6767,10 +6603,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -7141,13 +6974,7 @@ MonoBehaviour:
       m_Calls: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_text: "To begin we will \nhave you change \ninto a gown\n"
-=======
-  m_text: 'To begin we will have you change into a gown
-
-'
->>>>>>> Stashed changes
 =======
   m_text: 'To begin we will have you change into a gown
 
@@ -7310,15 +7137,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1386506108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
   m_PrefabInstance: {fileID: 1386506107}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1386506108
@@ -7341,9 +7165,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7370,10 +7191,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0, z: 0.0025921727}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &1386506110
@@ -7445,9 +7263,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7577,7 +7392,6 @@ MonoBehaviour:
   fadeDuration: 1.5
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1397534391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84f05d7b50c7e8b4fa8ff6cdbbbfc08b, type: 3}
@@ -7589,8 +7403,6 @@ Transform:
   m_PrefabInstance: {fileID: 417265630}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1397534391
@@ -7628,9 +7440,6 @@ Transform:
   m_Father: {fileID: 592270202}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7760,15 +7569,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1573502809 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
   m_PrefabInstance: {fileID: 1573502808}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1573502809
@@ -7791,9 +7597,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7820,15 +7623,12 @@ BoxCollider:
   m_Center: {x: 0, y: 0, z: 0.0025921718}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!4 &1573502813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
   m_PrefabInstance: {fileID: 1573502808}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!4 &1573502813
@@ -7900,9 +7700,6 @@ MeshFilter:
   m_GameObject: {fileID: 1573502809}
   m_Mesh: {fileID: -5495902117074765545, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -7956,10 +7753,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -8100,7 +7894,6 @@ MonoBehaviour:
   rC: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   textObjects:
   - {fileID: 965998941}
   - {fileID: 0}
@@ -8112,8 +7905,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   currentObj: {fileID: 0}
@@ -8129,9 +7920,6 @@ MonoBehaviour:
   - {fileID: 1140775148}
   currentTextIndex: 0
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -8209,15 +7997,12 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1670111148 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ad73cffaab745448bd07ef7abefb83a, type: 3}
   m_PrefabInstance: {fileID: 1670111147}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1670111148
@@ -8240,9 +8025,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -8269,10 +8051,7 @@ BoxCollider:
   m_Center: {x: 0, y: 0, z: 0.0025921727}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &1670111150
@@ -8344,9 +8123,6 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -8386,10 +8162,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1748126354
@@ -8529,9 +8302,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1748126354}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -8821,7 +8591,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 35cd22d675b9dea4389721bbf925bdd3, type: 3}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1862449045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35cd22d675b9dea4389721bbf925bdd3, type: 3}
@@ -8833,8 +8602,6 @@ Transform:
   m_PrefabInstance: {fileID: 1862449044}
   m_PrefabAsset: {fileID: 0}
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1862449045
@@ -8874,9 +8641,6 @@ Transform:
   m_Father: {fileID: 380684492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -9076,10 +8840,7 @@ BoxCollider:
   m_Center: {x: 1.4551915e-10, y: -0.000048581947, z: -0.0005738503}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!23 &1862449050
@@ -9138,9 +8899,6 @@ MeshFilter:
   m_GameObject: {fileID: 1862449045}
   m_Mesh: {fileID: -462981019419857548, guid: 35cd22d675b9dea4389721bbf925bdd3, type: 3}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -9208,17 +8966,11 @@ MonoBehaviour:
       m_Calls: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_text: 'This is a necessary step
 
     as cleanrooms are
 
     sensitive to particles'
-=======
-  m_text: 'This is a necessary step as cleanrooms are prone to particles
-
-'
->>>>>>> Stashed changes
 =======
   m_text: 'This is a necessary step as cleanrooms are prone to particles
 
@@ -9309,10 +9061,7 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
 =======
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1987762351
@@ -9454,9 +9203,6 @@ CanvasRenderer:
   m_GameObject: {fileID: 1987762351}
   m_CullTransparentMesh: 1
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -9519,11 +9265,7 @@ MonoBehaviour:
       m_Calls: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_text: "This is a \nsemiconductor clean room"
-=======
-  m_text: This is a semiconductor clean room
->>>>>>> Stashed changes
 =======
   m_text: This is a semiconductor clean room
 >>>>>>> Stashed changes
@@ -9658,10 +9400,7 @@ MonoBehaviour:
   targetLayer:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
     serializedVersion: 2
-=======
->>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -15639,7 +15378,6 @@ SceneRoots:
   - {fileID: 1847351655}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
   - {fileID: 703066638}
   - {fileID: 1609243201}
   - {fileID: 380684492}
@@ -15647,16 +15385,11 @@ SceneRoots:
 =======
 =======
 >>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   - {fileID: 1609243201}
   - {fileID: 380684492}
   - {fileID: 1748052242}
   - {fileID: 703066638}
 <<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
