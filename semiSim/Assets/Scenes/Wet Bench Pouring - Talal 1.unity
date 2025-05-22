@@ -1768,6 +1768,7 @@ MonoBehaviour:
   pourAngleThreshhold: 80
   pourRate: 10
   maximumPourDistance: 1
+  yScaleMul: 1.5
   PouringStreamMaterial: {fileID: 0}
 --- !u!1001 &599386122
 PrefabInstance:
@@ -5269,19 +5270,19 @@ SceneRoots:
   - {fileID: 1683803697}
   - {fileID: 1043989532}
   - {fileID: 1375899279}
-  - {fileID: 3724458070885822318}
   - {fileID: 589601425}
   - {fileID: 2035927067}
-  - {fileID: 1985801887}
-  - {fileID: 599386122}
-  - {fileID: 856308520}
   - {fileID: 507472002}
   - {fileID: 1805401761}
   - {fileID: 1847351655}
+  - {fileID: 324066324}
+  - {fileID: 3724458070885822318}
+  - {fileID: 1985801887}
+  - {fileID: 599386122}
+  - {fileID: 856308520}
   - {fileID: 560269857}
   - {fileID: 2890679494583269821}
   - {fileID: 7094610420772644629}
-  - {fileID: 324066324}
   - {fileID: 7529430115249162420}
   - {fileID: 511161341}
   - {fileID: 6388619955172742874}
