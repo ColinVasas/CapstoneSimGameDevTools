@@ -39,7 +39,7 @@ public class TweezerGrabber : MonoBehaviour
             tweezersGripZone.isTrigger = true;
         }
     }
-    
+
     private void Update()
     {
         // Get the controller if we don't have it yet
@@ -47,17 +47,21 @@ public class TweezerGrabber : MonoBehaviour
         {
             GetDevice();
         }
-        
-        // Only check for button presses if we're holding the tweezers
-        if (isTweezerHeld && targetDevice.isValid)
+
+        bool isVRButtonPressed = false;
+        if (targetDevice.isValid)
         {
-            bool isButtonPressed = false;
-            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isButtonPressed);
-            
-            // Only react on button down
-            if (isButtonPressed && !wasButtonPressed)
+            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isVRButtonPressed);
+        }
+
+        // Check input if tweezers are held
+        if (isTweezerHeld)
+        {
+            bool isKeyboardPressed = Input.GetKeyDown(KeyCode.E);
+            bool isInteractionPressed = isVRButtonPressed && !wasButtonPressed;
+
+            if ((isInteractionPressed || isKeyboardPressed))
             {
-                // Button just pressed
                 if (!isHoldingWafer && currentWaferInRange != null)
                 {
                     GrabWafer(currentWaferInRange);
@@ -67,11 +71,11 @@ public class TweezerGrabber : MonoBehaviour
                     ReleaseWafer();
                 }
             }
-            
-            wasButtonPressed = isButtonPressed;
+
+            wasButtonPressed = isVRButtonPressed;
         }
     }
-    
+
     private void GetDevice()
     {
         InputDevices.GetDevicesAtXRNode(controllerNode, devices);
