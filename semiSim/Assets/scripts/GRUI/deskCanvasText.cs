@@ -6,7 +6,7 @@ public class deskCanvasText : MonoBehaviour
 {
     public TextMeshProUGUI equipText;  
     public float fadeDuration = 0.5f;
-    public float displayDuration = 2.0f;
+    public float displayDuration = 4.0f;
     public float delayBetweenTexts = 0.5f;
 
     private string[] messages = new string[]
