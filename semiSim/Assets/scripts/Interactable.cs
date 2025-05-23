@@ -29,7 +29,7 @@ public class Interactable : MonoBehaviour
 
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
-    public float displayDuration = 3.0f;
+    public float displayDuration = 4.0f;
 
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
@@ -62,6 +62,27 @@ public class Interactable : MonoBehaviour
         "All done here! Head to\nthe Wet Etching room!\nLook for the door."
     };
 
+    // pressed the red button
+    public bool step1_redbutton;
+    // placed chuck
+    public bool step2_placedchuck;
+    // placed cleaned wafer
+    public bool step3_placedwafer;
+    // pressed the red button
+    public bool step4_redbutton;
+    // applied PMMA
+    public bool step5_PMMA;
+    // started spincoater
+    public bool step6_spinning;
+    // opened spincoater
+    public bool step7_openspincoater;
+    // did hot plate stuff and placed wafer in spincoater again
+    public bool step8_waferinspincoater;
+    // applied PI
+    public bool step9_PI;
+    // avatar: the last spin
+    public bool step10_lastspin;
+
     private enum SpinCoaterState
     {
         OpenSpinCoater,
@@ -90,7 +111,7 @@ public class Interactable : MonoBehaviour
     {
         // temporarily commenting this out before pushing since it's not working yet
 
-        // introCoroutine = StartCoroutine(DisplayTextSequence());
+        introCoroutine = StartCoroutine(DisplayTextSequence());
     }
 
     private IEnumerator DisplayTextSequence()
@@ -282,6 +303,8 @@ public class Interactable : MonoBehaviour
                 Debug.Log("done.");
                 break;
         }
+
+        
 
         // temporarily commenting this out before pushing since it's not working yet
 

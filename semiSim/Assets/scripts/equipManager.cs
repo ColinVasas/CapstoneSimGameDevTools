@@ -16,7 +16,7 @@ public class equipManager : MonoBehaviour
     public GameObject trigger;
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
-    public float displayDuration = 1.5f;
+    public float displayDuration = 3.0f;
 
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
