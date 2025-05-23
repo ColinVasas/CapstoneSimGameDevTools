@@ -62,27 +62,6 @@ public class Interactable : MonoBehaviour
         "All done here! Head to\nthe Wet Etching room!\nLook for the door."
     };
 
-    // pressed the red button
-    public bool step1_redbutton;
-    // placed chuck
-    public bool step2_placedchuck;
-    // placed cleaned wafer
-    public bool step3_placedwafer;
-    // pressed the red button
-    public bool step4_redbutton;
-    // applied PMMA
-    public bool step5_PMMA;
-    // started spincoater
-    public bool step6_spinning;
-    // opened spincoater
-    public bool step7_openspincoater;
-    // did hot plate stuff and placed wafer in spincoater again
-    public bool step8_waferinspincoater;
-    // applied PI
-    public bool step9_PI;
-    // avatar: the last spin
-    public bool step10_lastspin;
-
     private enum SpinCoaterState
     {
         OpenSpinCoater,
@@ -114,11 +93,25 @@ public class Interactable : MonoBehaviour
         introCoroutine = StartCoroutine(DisplayTextSequence());
     }
 
+    private bool stopIntro = false;
+
+    // stop the intro text if we started picking up stuff
+    public void StopIntro()
+    {
+        stopIntro = true;
+        if (introCoroutine != null) StopCoroutine(introCoroutine);
+
+        equipText.gameObject.SetActive(false);
+        var c = equipText.color;
+        c.a = 0;
+        equipText.color = c;
+    }
+
     private IEnumerator DisplayTextSequence()
     {
         foreach (string message in oneMSG)
         {
-            // if (stopIntro) yield break;
+            if (stopIntro) yield break;
 
             yield return StartCoroutine(DisplayTextMessage(message));
             yield return new WaitForSeconds(delayBetweenTexts);
@@ -180,6 +173,8 @@ public class Interactable : MonoBehaviour
         switch(currentState)
         {
             case SpinCoaterState.OpenSpinCoater:
+                stopIntro = true;
+                StopIntro();
                 Debug.Log("Spincoater opened");
                 lid.SetActive(false);
                 currentState = SpinCoaterState.PlaceChuck;
@@ -190,6 +185,8 @@ public class Interactable : MonoBehaviour
             case SpinCoaterState.PlaceChuck:
                 if(hasChuck)
                 {
+                    stopIntro = true;
+                    StopIntro();
                     Debug.Log("Chuck Placed");
                     currentState = SpinCoaterState.PlaceWafer;
                     triggerZoneWafer.SetActive(true);
@@ -206,6 +203,8 @@ public class Interactable : MonoBehaviour
             case SpinCoaterState.PlaceWafer:
                 if(hasWafer)
                 {
+                    stopIntro = true;
+                    StopIntro();
                     Debug.Log("Wafer Placed");
                     currentState = SpinCoaterState.TurnOnVacuum;
                     triggerZoneWafer.SetActive(false);
@@ -221,6 +220,8 @@ public class Interactable : MonoBehaviour
             
 
             case SpinCoaterState.TurnOnVacuum:
+                stopIntro = true;
+                StopIntro();
                 //place model animate here
                 Debug.Log("Vacuum on");
                 // lid.SetActive(true);
@@ -235,6 +236,8 @@ public class Interactable : MonoBehaviour
             case SpinCoaterState.PlacePMMA:
                 if(hasPMMA)
                 {
+                    stopIntro = true;
+                    StopIntro();
                     //place model animate here
                     Debug.Log("PMMA on");
                     currentState = SpinCoaterState.TurnOnSpinCoater;
@@ -248,10 +251,14 @@ public class Interactable : MonoBehaviour
                 }
                 break;
             case SpinCoaterState.TurnOnSpinCoater:
+                stopIntro = true;
+                StopIntro();
                 done = true;
                 // currentState = SpinCoaterState.HotPlate;
                 break;
             case SpinCoaterState.HotPlate:
+                stopIntro = true;
+                StopIntro();
                 Debug.Log("wafer here");
                 lid.SetActive(false);
                 triggerZoneHotPlate.SetActive(true);
@@ -261,6 +268,8 @@ public class Interactable : MonoBehaviour
                 currentState = SpinCoaterState.PlaceWaferBack;
                 break;
             case SpinCoaterState.PlaceWaferBack:
+                stopIntro = true;
+                StopIntro();
                 triggerZoneHotPlate.SetActive(false);
                 triggerZonePI.SetActive(true);
                 //cusRotation = Quaternion.Euler(0, 0, 0);
@@ -279,7 +288,9 @@ public class Interactable : MonoBehaviour
                 currentState = SpinCoaterState.PlacePI;
                 break;
             case SpinCoaterState.PlacePI:
-                if(hasPI)
+                stopIntro = true;
+                StopIntro();
+                if (hasPI)
                 {
                     //place model animate here
                     Debug.Log("PI on");
@@ -294,17 +305,21 @@ public class Interactable : MonoBehaviour
                 }
                 break;
             case SpinCoaterState.TurnOnSpinCoaterAgain:
+                stopIntro = true;
+                StopIntro();
                 done = true;
                 // currentState = SpinCoaterState.HotPlate;
                 break;
 
             case SpinCoaterState.Done:
+                stopIntro = true;
+                StopIntro();
                 lid.SetActive(false);
                 Debug.Log("done.");
                 break;
         }
 
-        
+        // stopIntro = true;
 
         // temporarily commenting this out before pushing since it's not working yet
 
@@ -313,7 +328,7 @@ public class Interactable : MonoBehaviour
         //{
         //    StopCoroutine(equipMessageCoroutine);
         //}
-        //// queue up current message
+        // queue up current message
         //if (currentMessageIndex < equipMessages.Length)
         //{
         //    equipMessageCoroutine = StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex++]));
