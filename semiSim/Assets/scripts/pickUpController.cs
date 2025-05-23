@@ -99,6 +99,16 @@ public class pickUpController : MonoBehaviour
                               // "There's more."
                               // "No!"
                          }
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "Tweezers"))
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("These are tweezers"));
+                         }
+                         else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "WaferHolder"))
+                         {
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("This is the Wafer Holder"));
+                         }
                          // this is for the gowning room procedures
                          else if (heldObj != null)
                          {
