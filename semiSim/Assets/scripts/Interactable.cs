@@ -34,33 +34,74 @@ public class Interactable : MonoBehaviour
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
 
-    public float delayBetweenTexts = 0.5f;
+    public float delayBetweenTexts = 4.0f;
 
     private string[] oneMSG = new string[]
     {
         "",
         "Welcome to the yellow room!",
-        "Go to the spincoater,\nthen press the red button."
+        "Go to the spincoater,\nthen press the red button (with E)."
     };
 
-    private string[] equipMessages = new string[]
+    private string[] phase1 = new string[]
     {
-        // "Go to the spincoater,\nthen press the red button.",
-        "Grab a chuck (large black plate) from\nthe table to the right and\nput it in the spincoater.",
-        "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).\nThen place the wafer in\nthe spincoater.",
-        // "Now take the wafer and\nplace it in the spincoater.",
-        "Grab a pipette from the table\nand dip it in the PMMA.",
-        "Press the big red button again.",
-        "Apply the PMMA to the spincoater.",
-        "Start the spincoater\n(via the red button).",
-        "Open the spincoater.",
-        "Take the wafer out and\nplace it on the hotplate.",
-        "Now take the wafer and\nplace it in the spincoater again.",
-        "Grab another pipette and dip\nit in the PI",
-        "Apply the PI to the spincoater",
-        "Start the spincoater\n(via the red button).",
-        "All done here! Head to\nthe Wet Etching room!\nLook for the door."
+        "Place a chuck (large black plate)\nin the spincoater.",
+        "You'll find it on the table to the right."
     };
+    private string[] phase2 = new string[]
+    {
+        // "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).\nThen place the wafer in\nthe spincoater.",
+        "Now let's work with the wafer.",
+        "You'll need to clean\nthe wafer first.",
+        "Grab the spray gun and\nuse it to clean the wafer.",
+        "Then, place the wafer\nin the spincoater."
+    };
+    private string[] phase3 = new string[]
+    {
+        "Grab a pipette from the table.",
+        "Dip the pipette in the PMMA.",
+        "Then, go back to the Spincoater\nand press the red button.",
+    };
+    private string[] phase4 = new string[]
+    {
+        "Apply the PMMA.",
+        "The red box shows you\nwhere to place the PMMA."
+    };
+    private string[] phase5 = new string[]
+    {
+        "We're ready to start the spincoater!",
+        "Press the red button again."
+    };
+    private string[] phase6 = new string[]
+    {
+        "Once the spincoater is done vacuuming...",
+        "Press the red button again."
+    };
+    private string[] phase7 = new string[]
+    {
+        "Take out the wafer.",
+        "(It may be difficult to pick up\nthe wafer due to the\nred box collision.)",
+        "Then, place it on the hot plate\non the table.",
+        "Once the hot plate is done...",
+        "Take the wafer back to the spincoater."
+    };
+    private string[] phase8 = new string[]
+    {
+        "Grab another pipette from the table.",
+        "Dip the pipette in the PI.",
+        "Then, go back to the Spincoater\nand apply the PI.",
+    };
+    private string[] phase9 = new string[]
+    {
+        "Time for the last step!",
+        "Press the red button one more time!",
+    };
+    private string[] phase10 = new string[]
+    {
+        "You're done with the yellow room!",
+        "Head to the door to reach the\nwet bench room."
+    };
+    private int cur_step = 0;
 
     private enum SpinCoaterState
     {
@@ -88,9 +129,7 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        // temporarily commenting this out before pushing since it's not working yet
-
-        introCoroutine = StartCoroutine(DisplayTextSequence());
+        introCoroutine = StartCoroutine(DisplayIntroSequence(oneMSG));
     }
 
     private bool stopIntro = false;
@@ -107,9 +146,18 @@ public class Interactable : MonoBehaviour
         equipText.color = c;
     }
 
-    private IEnumerator DisplayTextSequence()
+    private IEnumerator DisplayTextSequence(string[] message_list)
     {
-        foreach (string message in oneMSG)
+        foreach (string message in message_list)
+        {
+            yield return StartCoroutine(DisplayTextMessage(message));
+            yield return new WaitForSeconds(delayBetweenTexts);
+        }
+    }
+
+    private IEnumerator DisplayIntroSequence(string[] message_list)
+    {
+        foreach (string message in message_list)
         {
             if (stopIntro) yield break;
 
@@ -180,6 +228,19 @@ public class Interactable : MonoBehaviour
                 currentState = SpinCoaterState.PlaceChuck;
                 triggerZoneEtc.SetActive(false);
                 triggerZoneChuck.SetActive(true);
+
+                if (cur_step == 0)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase1));
+                    cur_step++;
+                }
+
                 break;
 
             case SpinCoaterState.PlaceChuck:
@@ -193,6 +254,19 @@ public class Interactable : MonoBehaviour
                     triggerZoneChuck.SetActive(false);
                     Quaternion cusRotation = Quaternion.Euler(90, 0, 0);
                     Instantiate(chuck, chuckLocation.position, cusRotation);
+
+                    if (cur_step == 1)
+                    {
+                        // kill process of any current message
+                        if (equipMessageCoroutine != null)
+                        {
+                            StopCoroutine(equipMessageCoroutine);
+                        }
+                        // queue up current message
+                        equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase2));
+                        cur_step++;
+                    }
+
                 }
                 else
                 {
@@ -211,6 +285,18 @@ public class Interactable : MonoBehaviour
                     triggerZoneEtc.SetActive(true);
                     // cusRotation = Quaternion.Euler(0, 0, 0);
                     curWafer = Instantiate(wafer, waferLocation.position, Quaternion.Euler(0, 0, 0));
+
+                    if (cur_step == 2)
+                    {
+                        // kill process of any current message
+                        if (equipMessageCoroutine != null)
+                        {
+                            StopCoroutine(equipMessageCoroutine);
+                        }
+                        // queue up current message
+                        equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase3));
+                        cur_step++;
+                    }
                 }
                 else
                 {
@@ -229,6 +315,19 @@ public class Interactable : MonoBehaviour
                 //triggerZoneEtc.SetActive(false);
                 triggerZonePMMA.SetActive(true);
                 currentState = SpinCoaterState.PlacePMMA;
+
+                if (cur_step == 3)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase4));
+                    cur_step++;
+                }
+
                 break;
 
             // case SpinCoaterState.HotPlate:
@@ -244,6 +343,19 @@ public class Interactable : MonoBehaviour
                     triggerZonePMMA.SetActive(false);
                     lid.SetActive(true);
                     triggerZoneEtc.SetActive(true);
+
+                    if (cur_step == 4)
+                    {
+                        // kill process of any current message
+                        if (equipMessageCoroutine != null)
+                        {
+                            StopCoroutine(equipMessageCoroutine);
+                        }
+                        // queue up current message
+                        equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase5));
+                        cur_step++;
+                    }
+
                 }
                 else
                 {
@@ -255,6 +367,19 @@ public class Interactable : MonoBehaviour
                 StopIntro();
                 done = true;
                 // currentState = SpinCoaterState.HotPlate;
+
+                if (cur_step == 5)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase6));
+                    cur_step++;
+                }
+
                 break;
             case SpinCoaterState.HotPlate:
                 stopIntro = true;
@@ -266,6 +391,19 @@ public class Interactable : MonoBehaviour
                 // Quaternion cusRotation = Quaternion.Euler(0, 0, 0);
                 Instantiate(coldWafer, waferLocation.position, Quaternion.Euler(0, 0, 0));
                 currentState = SpinCoaterState.PlaceWaferBack;
+
+                if (cur_step == 6)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase7));
+                    cur_step++;
+                }
+
                 break;
             case SpinCoaterState.PlaceWaferBack:
                 stopIntro = true;
@@ -286,6 +424,19 @@ public class Interactable : MonoBehaviour
                     renderer.materials = mats;
                 }
                 currentState = SpinCoaterState.PlacePI;
+
+                if (cur_step == 7)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase8));
+                    cur_step++;
+                }
+
                 break;
             case SpinCoaterState.PlacePI:
                 stopIntro = true;
@@ -298,6 +449,19 @@ public class Interactable : MonoBehaviour
                     triggerZonePI.SetActive(false);
                     lid.SetActive(true);
                     triggerZoneEtc.SetActive(true);
+
+                    if (cur_step == 8)
+                    {
+                        // kill process of any current message
+                        if (equipMessageCoroutine != null)
+                        {
+                            StopCoroutine(equipMessageCoroutine);
+                        }
+                        // queue up current message
+                        equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase9));
+                        cur_step++;
+                    }
+
                 }
                 else
                 {
@@ -308,6 +472,19 @@ public class Interactable : MonoBehaviour
                 stopIntro = true;
                 StopIntro();
                 done = true;
+
+                if (cur_step == 9)
+                {
+                    // kill process of any current message
+                    if (equipMessageCoroutine != null)
+                    {
+                        StopCoroutine(equipMessageCoroutine);
+                    }
+                    // queue up current message
+                    equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase10));
+                    cur_step++;
+                }
+
                 // currentState = SpinCoaterState.HotPlate;
                 break;
 
