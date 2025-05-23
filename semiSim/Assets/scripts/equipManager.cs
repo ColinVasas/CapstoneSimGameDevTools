@@ -32,6 +32,8 @@ public class equipManager : MonoBehaviour
         "Alright. Now head to the door\nto enter the Yellow Room!"
     };
 
+    public TaskListUI taskListUI; //Reference TaskListUI script through UI manager
+
     private void Start()
     {
         equipText.gameObject.SetActive(false);
@@ -48,6 +50,15 @@ public class equipManager : MonoBehaviour
         gloves.tag = "Untagged";
 
         trigger.SetActive(false);
+
+        // Add initial tasks to the task list
+        taskListUI.AddTask("Wear HairNet");
+        taskListUI.AddTask("Equip Face Mask");
+        taskListUI.AddTask("Put on Clean Hood");
+        taskListUI.AddTask("Wear Goggles");
+        taskListUI.AddTask("Put on Bunny Suit");
+        taskListUI.AddTask("Wear Boots");
+        taskListUI.AddTask("Put on Gloves");
     }
 
     public void textDis()
@@ -63,33 +74,26 @@ public class equipManager : MonoBehaviour
         switch (equippedObject)
         {
             case var obj when obj == hairNet:
-                EquipItem(hairNet, faceMask);
-                // DisplayTextMessage("hairnet equipped!");
+                EquipItem(hairNet, faceMask, "Wear HairNet");
                 break;
             case var obj when obj == faceMask:
-                EquipItem(faceMask, cleanHood);
-                // DisplayTextMessage("facemask equipped!");
+                EquipItem(faceMask, cleanHood, "Equip Face Mask");
                 break;
             case var obj when obj == cleanHood:
-                EquipItem(cleanHood, goggles);
-                // DisplayTextMessage("cleanhood equipped!");
+                EquipItem(cleanHood, goggles, "Put on Clean Hood");
                 break;
             case var obj when obj == goggles:
-                EquipItem(goggles, bunnySuit);
-                // DisplayTextMessage("goggles equipped!");
+                EquipItem(goggles, bunnySuit, "Wear Goggles");
                 break;
             case var obj when obj == bunnySuit:
-                EquipItem(bunnySuit, boots);
-                // DisplayTextMessage("bunny suit equipped!");
+                EquipItem(bunnySuit, boots, "Put on Bunny Suit");
                 break;
             case var obj when obj == boots:
-                EquipItem(boots, gloves);
-                // DisplayTextMessage("boots equipped!");
+                EquipItem(boots, gloves, "Wear Boots");
                 break;
             case var obj when obj == gloves:
                 trigger.SetActive(true);
-                EquipItem(gloves, null);
-                // DisplayTextMessage("gloves equipped!");
+                EquipItem(gloves, null, "Put on Gloves");
                 break;
             default:
                 Debug.Log("Invalid equipment sequence.");
@@ -108,7 +112,7 @@ public class equipManager : MonoBehaviour
         }
     }
 
-    private void EquipItem(GameObject current, GameObject next)
+    private void EquipItem(GameObject current, GameObject next, string taskName)
     {
         current.SetActive(false);
 
@@ -120,6 +124,9 @@ public class equipManager : MonoBehaviour
         //     StartCoroutine(DisplayTextMessage(equipMessages[currentMessageIndex]));
         //     currentMessageIndex++;
         //}
+
+        // Mark the task as completed in the task list
+        taskListUI.CompleteTask(taskName);
     }
 
     private IEnumerator DisplayTextMessage(string message)
