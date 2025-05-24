@@ -10615,6 +10615,10 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 156195182}
+    - target: {fileID: 8921659616586172863, guid: 22cbd29ca3c66604d9ad6fd12bbba038, type: 3}
+      propertyPath: nextSceneName
+      value: YellowRoom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

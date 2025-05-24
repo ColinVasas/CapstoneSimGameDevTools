@@ -6,8 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
      [Header("UI References")]
      public GameObject pauseMenuUI;
-     public CanvasGroup darkOverlayCanvasGroup; // dark semi-transparent panel (alpha 0-0.2)
-     public CanvasGroup buttonsCanvasGroup; // parent of buttons (alpha 0-1)
+     public CanvasGroup darkOverlayCanvasGroup; 
+     public CanvasGroup buttonsCanvasGroup;
+     public string nextSceneName; 
 
      [Header("Camera")]
      public GameObject cameraObject;
@@ -19,7 +20,7 @@ public class PauseMenu : MonoBehaviour
      void Start()
      {
           buttonsCanvasGroup.alpha = 0.0f;
-          Resume(); // start unpaused
+          Resume(); 
      }
 
      void Update()
@@ -32,7 +33,6 @@ public class PauseMenu : MonoBehaviour
                     Pause();
           }
 
-          // Lock camera rotation while paused
           if (isPaused && cameraObject != null)
           {
                cameraObject.transform.rotation = frozenRotation;
@@ -51,8 +51,7 @@ public class PauseMenu : MonoBehaviour
           Cursor.lockState = CursorLockMode.None;
           Cursor.visible = true;
 
-          // Fade in dark overlay (to 0.2 alpha) and buttons (to full alpha)
-          StartCoroutine(FadeCanvasGroup(darkOverlayCanvasGroup, 0f, 0.2f, fadeDuration, true));
+          StartCoroutine(FadeCanvasGroup(darkOverlayCanvasGroup, 0f, 0.4f, fadeDuration, true));
           StartCoroutine(FadeCanvasGroup(buttonsCanvasGroup, 0f, 1f, fadeDuration, true));
      }
 
@@ -63,7 +62,6 @@ public class PauseMenu : MonoBehaviour
 
      IEnumerator FadeOutAndResume()
      {
-          // Fade buttons out fully then fade overlay out partially
           yield return StartCoroutine(FadeCanvasGroup(buttonsCanvasGroup, 1f, 0f, fadeDuration, false));
           yield return StartCoroutine(FadeCanvasGroup(darkOverlayCanvasGroup, 0.4f, 0f, fadeDuration, false));
 
@@ -91,21 +89,22 @@ public class PauseMenu : MonoBehaviour
           group.alpha = to;
      }
 
-     // Call this from your "Next Scene" button
+
      public void LoadNextScene()
      {
           Time.timeScale = 1f;
-          int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-          // Optional: check if next scene exists, otherwise wrap or do nothing
-          if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-               SceneManager.LoadScene(nextSceneIndex);
+          if (!string.IsNullOrEmpty(nextSceneName))
+          {
+               SceneManager.LoadScene(nextSceneName);
+          }
           else
-               Debug.Log("No next scene available");
-
+          {
+               Debug.LogWarning("Next scene name not set!");
+          }
      }
 
-     // Call this from your "Quit" button
+
      public void QuitGame()
      {
           Debug.Log("Quitting game...");
