@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/YellowRoomVR.unity
     guid: 081b843c096595a46a4e5007c9fd8e33
+  - enabled: 1
+    path: Assets/Scenes/0 Final combined Room.unity
+    guid: e6f4250bd769bb741a66bf278ce56857
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 93d9d04939d7e6149bfaf40b05ef45d0, type: 2}
