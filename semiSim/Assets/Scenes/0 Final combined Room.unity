@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Version: 2
   m_TaaSettings:
     m_Quality: 3
-    m_FrameInfluence: 0.1
+    m_FrameInfluence: 0.100000024
     m_JitterScale: 1
     m_MipBias: 0
     m_VarianceClampScale: 0.9
@@ -1009,6 +1009,7 @@ MonoBehaviour:
   fadeDuration: 0.5
   displayDuration: 1.5
   delayBetweenTexts: 0.5
+  currentState: 0
 --- !u!1 &454096727
 GameObject:
   m_ObjectHideFlags: 0
@@ -6037,6 +6038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   validTags:
   - Interactable
+  - validPMMA
   zoneRenderer: {fileID: 4829325958121093742}
   triggerZoneColor1: {fileID: 2100000, guid: abe276858b080db41baa16aadbe0b672, type: 2}
   triggerZoneColor2: {fileID: 2100000, guid: 139c5ac3516314616968227ef2c66633, type: 2}
@@ -11292,6 +11294,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 532449984}
     m_Modifications:
+    - target: {fileID: 4909920382525426666, guid: 922f4430b127fd644b9322cff6d0bf1b, type: 3}
+      propertyPath: 'validTags.Array.data[0]'
+      value: validPI
+      objectReference: {fileID: 0}
     - target: {fileID: 5956102140334074343, guid: 922f4430b127fd644b9322cff6d0bf1b, type: 3}
       propertyPath: m_Name
       value: PMMA

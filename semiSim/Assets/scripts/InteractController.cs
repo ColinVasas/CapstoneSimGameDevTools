@@ -45,16 +45,12 @@ public class InteractController : MonoBehaviour
                 Interactable interactable = hit.transform.GetComponent<Interactable>();
                 if(interactable != null)
                 {
-                    interactable.Interact();
-                    // if(pickUpController.heldObj != null)
-                    // {
-                    //     if(pickUpController.heldObj.CompareTag(chuck)) {
-                    //         interactable.ActivateChuck();
-                    //     }
-                    //     if(pickUpController.heldObj.CompareTag(wafer)) {
-                    //         interactable.ActivateWafer();
-                    //     }
-                    // }
+                    if(interactable.currentState == Interactable.SpinCoaterState.OpenSpinCoater || 
+                       interactable.currentState == Interactable.SpinCoaterState.TurnOnVacuum || 
+                       interactable.currentState == Interactable.SpinCoaterState.TurnOnSpinCoater || 
+                       interactable.currentState == Interactable.SpinCoaterState.HotPlate ||
+                       interactable.currentState == Interactable.SpinCoaterState.TurnOnSpinCoaterAgain)
+                        interactable.Interact();
                 }
             }
         }
