@@ -103,7 +103,7 @@ public class Interactable : MonoBehaviour
     };
     private int cur_step = 0;
 
-    private enum SpinCoaterState
+    public enum SpinCoaterState
     {
         OpenSpinCoater,
         PlaceChuck,
@@ -119,7 +119,7 @@ public class Interactable : MonoBehaviour
         Done
     }
 
-    private SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
+    public SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
     private Coroutine introCoroutine;
 
     IEnumerator StartUp(int i)
