@@ -7373,7 +7373,7 @@ RectTransform:
   - {fileID: 152135299}
   - {fileID: 701773827}
   - {fileID: 965998942}
-  m_Father: {fileID: 2125532639}
+  m_Father: {fileID: 1883917984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -22478,7 +22478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eafa8b8848dfdf45b6a1a01352387e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: YellowRoomVR
+  nextSceneName: 0 Final combined Room
   fadeCanvas: {fileID: 701773824}
   fadeDuration: 1.5
 --- !u!1001 &1390689620
@@ -30182,6 +30182,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 2125532638}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1883917984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 2125532638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1897924849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33532,7 +33537,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1680501587, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 417708359}
     m_AddedComponents:
@@ -33540,11 +33545,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 889288221}
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
---- !u!4 &2125532639 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1680501587, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-  m_PrefabInstance: {fileID: 2125532638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125712487
 GameObject:
   m_ObjectHideFlags: 0
