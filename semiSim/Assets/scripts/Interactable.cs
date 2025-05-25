@@ -409,7 +409,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase7));
-                    taskListUI?.CompleteTask("Use hotplate and return wafer");
+                    //taskListUI?.CompleteTask("Use hotplate/return wafer");
                     cur_step++;
                 }
 
@@ -443,7 +443,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase8));
-                    taskListUI?.CompleteTask("Apply PI");
+                    taskListUI?.CompleteTask("Use hotplate/return wafer");
                     cur_step++;
                 }
 
@@ -469,7 +469,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase9));
-                        taskListUI?.CompleteTask("Final spincoater run");
+                        taskListUI?.CompleteTask("Apply PI");
                         cur_step++;
                     }
 
@@ -493,7 +493,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase10));
-                    //taskListUI?.CompleteTask("Open spincoater lid");
+                    taskListUI?.CompleteTask("Final spincoater run");
                     cur_step++;
                 }
 

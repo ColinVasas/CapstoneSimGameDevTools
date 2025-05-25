@@ -13,7 +13,7 @@ public class TaskInitializer : MonoBehaviour
         "Turn on vacuum",
         "Apply PMMA",
         "Start spincoater",
-        "Use hotplate and return wafer",
+        "Use hotplate/return wafer",
         "Apply PI",
         "Final spincoater run",
         "Head to the wet bench room"
