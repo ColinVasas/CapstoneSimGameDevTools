@@ -93,8 +93,8 @@ public class pickUpController : MonoBehaviour
                          heldObj.name == "Bottle (4)" || heldObj.name == "Bottle (5)" || heldObj.name == "Bottle (6)" || 
                          heldObj.name == "Bottle (7)"))
                          {
-                              //StopMessage();
-                              //messageCoroutine = StartCoroutine(DisplayTextMessage("This is a bottle"));
+                              StopMessage();
+                              messageCoroutine = StartCoroutine(DisplayTextMessage("Tip: Hold 'R' and move mouse to rotate.\n(desktop only)"));
                               // "Dear god!"
                               // "There's more."
                               // "No!"
