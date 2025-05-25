@@ -112,9 +112,9 @@ public class pickUpController : MonoBehaviour
                          // this is for the gowning room procedures
                          else if (heldObj != null)
                          {
-                              StopMessage();
-                              Debug.Log(heldObj.name);
-                              messageCoroutine = StartCoroutine(ShowPersistentMessage("Whoops! Wrong object!\nLeft click to put down"));
+                              //StopMessage();
+                              //Debug.Log(heldObj.name);
+                              //messageCoroutine = StartCoroutine(ShowPersistentMessage("Whoops! Wrong object!\nLeft click to put down"));
                          }
                     }
                }
