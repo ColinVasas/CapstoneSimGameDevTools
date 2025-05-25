@@ -31,6 +31,18 @@ public class RecievingLiquidContainer : MonoBehaviour
         Debug.Log(grabInteractable.isSelected);
         return grabInteractable.isSelected;
     }
+    
+    public void DrainAll()
+    {
+        liquids.Clear();
+        
+        if (TryGetComponent(out LiquidVisual visual))
+        {
+            visual.liquidTransform.localScale = Vector3.zero;
+        }
+
+        Debug.Log($"Liquid drained in sink.");
+    }
 
     public void ReceiveLiquid(Liquid newLiquid)
     {
