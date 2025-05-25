@@ -19,6 +19,8 @@ public class Interactable : MonoBehaviour
     public GameObject wafer;
     public GameObject coldWafer;
     public GameObject curWafer;
+
+    public TaskListUI taskListUI;
     [SerializeField] private bool hasWafer = true;
     [SerializeField] private bool hasChuck = true;
     [SerializeField] private bool hasPMMA = true;
@@ -238,6 +240,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase1));
+                    taskListUI?.CompleteTask("Open spincoater lid");
                     cur_step++;
                 }
 
@@ -264,6 +267,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase2));
+                        taskListUI?.CompleteTask("Place chuck");
                         cur_step++;
                     }
 
@@ -295,6 +299,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase3));
+                        taskListUI?.CompleteTask("Place cleaned wafer");
                         cur_step++;
                     }
                 }
@@ -325,6 +330,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase4));
+                    taskListUI?.CompleteTask("Turn on vacuum");
                     cur_step++;
                 }
 
@@ -353,6 +359,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase5));
+                        taskListUI?.CompleteTask("Apply PMMA");
                         cur_step++;
                     }
 
@@ -377,6 +384,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase6));
+                    taskListUI?.CompleteTask("Start spincoater");
                     cur_step++;
                 }
 
@@ -401,6 +409,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase7));
+                    taskListUI?.CompleteTask("Use hotplate and return wafer");
                     cur_step++;
                 }
 
@@ -434,6 +443,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase8));
+                    taskListUI?.CompleteTask("Apply PI");
                     cur_step++;
                 }
 
@@ -459,6 +469,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase9));
+                        taskListUI?.CompleteTask("Final spincoater run");
                         cur_step++;
                     }
 
@@ -482,6 +493,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase10));
+                    //taskListUI?.CompleteTask("Open spincoater lid");
                     cur_step++;
                 }
 
