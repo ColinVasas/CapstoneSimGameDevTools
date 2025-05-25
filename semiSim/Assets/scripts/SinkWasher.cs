@@ -1,11 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;                 // ← XR input (same names as in TweezerGrabber)
+using UnityEngine.XR;              
 
 public class SinkWasher : MonoBehaviour
 {
-    [Header("Optional reference")]
-    public SnapZone snapZone;
+    [Header("References")]
+    [SerializeField] private RecievingLiquidContainer targetBeaker;
+    [SerializeField] private SnapZone snapZone;
+
+    [Header("Input")]
+    [SerializeField] private KeyCode washKey = KeyCode.E;
     
     [SerializeField] private XRNode controllerNode = XRNode.RightHand;
     private readonly List<InputDevice> devices = new();
@@ -35,23 +39,21 @@ public class SinkWasher : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(washKey))
             Wash();
         
         if (!targetDevice.isValid)
-            GetDevice();                       // fetch controller once
+            GetDevice();
 
         if (targetDevice.isValid)
         {
-            bool isPressed = false;
-            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out isPressed);
+            bool pressed = false;
+            targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out pressed);
 
-            if (isPressed && !wasButtonPressed)
-            {
-                Debug.Log("SinkWasher: A-button pressed.");
+            if (pressed && !wasButtonPressed)
                 Wash();
-            }
-            wasButtonPressed = isPressed;
+
+            wasButtonPressed = pressed;
         }
     }
     
@@ -72,14 +74,21 @@ public class SinkWasher : MonoBehaviour
             Debug.Log("SinkWasher: No wafer in sink.");
             return;
         }
-
-        if (!waferInSink.NeedsWashing)
+        
+        if (targetBeaker)
         {
-            Debug.Log("SinkWasher: Wafer is already clean.");
-            return;
+            targetBeaker.DrainAll();
+            Debug.Log("SinkWasher: Beaker emptied / solution refreshed.");
         }
-
-        waferInSink.Clean();
-        Debug.Log($"SinkWasher: {waferInSink.name} washed successfully!");
+        
+        if (waferInSink.NeedsWashing)
+        {
+            waferInSink.Clean();
+            Debug.Log($"SinkWasher: {waferInSink.name} washed successfully!");
+        }
+        else
+        {
+            Debug.Log("SinkWasher: Wafer already clean — skipped wash step.");
+        }
     }
 }
