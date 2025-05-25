@@ -22382,7 +22382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eafa8b8848dfdf45b6a1a01352387e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: YellowRoomVR
+  nextSceneName: 0 Final combined Room
   fadeCanvas: {fileID: 701773824}
   fadeDuration: 1.5
 --- !u!1001 &1390689620

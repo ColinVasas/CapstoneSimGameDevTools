@@ -51,7 +51,7 @@ public class PauseMenu : MonoBehaviour
           Cursor.lockState = CursorLockMode.None;
           Cursor.visible = true;
 
-          StartCoroutine(FadeCanvasGroup(darkOverlayCanvasGroup, 0f, 0.4f, fadeDuration, true));
+          StartCoroutine(FadeCanvasGroup(darkOverlayCanvasGroup, 0f, 0.6f, fadeDuration, true));
           StartCoroutine(FadeCanvasGroup(buttonsCanvasGroup, 0f, 1f, fadeDuration, true));
      }
 
