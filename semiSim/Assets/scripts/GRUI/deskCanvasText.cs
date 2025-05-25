@@ -15,7 +15,7 @@ public class deskCanvasText : MonoBehaviour
         "This is a\nsemiconductor clean room",
         "To begin, we will\nhave you change\ninto a gown",
         "This is a necessary step\nas cleanrooms are\nsensitive to particles",
-        "Start by finding a hairnet\non the counter to the right",
+        "Start by finding a hairnet\non the counter to the left",
         "Once you find it, left click\nto pick it up or put it down"
     };
 
