@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -1986,7 +1986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -7347,8 +7347,8 @@ RectTransform:
   - {fileID: 1371942019}
   - {fileID: 1938676713}
   - {fileID: 152135299}
-  - {fileID: 965998942}
   - {fileID: 701773827}
+  - {fileID: 965998942}
   m_Father: {fileID: 2125532639}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11457,7 +11457,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 701773823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12275,7 +12275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -16201,7 +16201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -16600,7 +16600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -17449,7 +17449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
@@ -25622,7 +25622,7 @@ MonoBehaviour:
   displayDuration: 1.5
   lC: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rC: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  textObject: {fileID: 0}
+  textObject: {fileID: 965998941}
 --- !u!1 &1613152540
 GameObject:
   m_ObjectHideFlags: 0
@@ -29778,7 +29778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1805401760}
   m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
