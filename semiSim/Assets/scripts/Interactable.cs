@@ -29,12 +29,12 @@ public class Interactable : MonoBehaviour
 
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
-    public float displayDuration = 4.0f;
+    public float displayDuration = 3.0f;
 
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
 
-    public float delayBetweenTexts = 4.0f;
+    public float delayBetweenTexts = 0.5f;
 
     private string[] oneMSG = new string[]
     {
@@ -151,7 +151,7 @@ public class Interactable : MonoBehaviour
         foreach (string message in message_list)
         {
             yield return StartCoroutine(DisplayTextMessage(message));
-            yield return new WaitForSeconds(delayBetweenTexts);
+            // yield return new WaitForSeconds(delayBetweenTexts);
         }
     }
 
@@ -162,7 +162,7 @@ public class Interactable : MonoBehaviour
             if (stopIntro) yield break;
 
             yield return StartCoroutine(DisplayTextMessage(message));
-            yield return new WaitForSeconds(delayBetweenTexts);
+            // yield return new WaitForSeconds(delayBetweenTexts);
         }
     }
 
