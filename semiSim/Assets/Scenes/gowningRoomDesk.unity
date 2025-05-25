@@ -37663,6 +37663,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2655575946666769550, guid: 22cbd29ca3c66604d9ad6fd12bbba038, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655575946666769550, guid: 22cbd29ca3c66604d9ad6fd12bbba038, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4040591558862133177, guid: 22cbd29ca3c66604d9ad6fd12bbba038, type: 3}
       propertyPath: m_Name
       value: Canvas

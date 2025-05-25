@@ -1171,6 +1171,7 @@ MonoBehaviour:
   wafer: {fileID: 0}
   coldWafer: {fileID: 0}
   curWafer: {fileID: 0}
+  taskListUI: {fileID: 0}
   hasWafer: 1
   hasChuck: 1
   hasPMMA: 1
@@ -1819,6 +1820,10 @@ PrefabInstance:
       propertyPath: equipText
       value: 
       objectReference: {fileID: 1673636328}
+    - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
+      propertyPath: taskListUI
+      value: 
+      objectReference: {fileID: 1355056313}
     - target: {fileID: 772535839909426504, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
       propertyPath: m_Name
       value: spincoaterVR (1)
@@ -9427,6 +9432,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1673636328}
     - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
+      propertyPath: taskListUI
+      value: 
+      objectReference: {fileID: 1355056313}
+    - target: {fileID: 203616896147843924, guid: 59d586d8d3ebbcf458d73c1ffad2ba3b, type: 3}
       propertyPath: triggerZonePI
       value: 
       objectReference: {fileID: 1620386930}
@@ -10115,7 +10124,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1086127992539641515, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+    - {fileID: 3217725490336881173, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+    - {fileID: 2552905183229252047, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
@@ -10506,6 +10518,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1673636328}
     - target: {fileID: 8847860348373117551, guid: 883ba144967f6f441a5b7eb9a3eb0254, type: 3}
+      propertyPath: taskListUI
+      value: 
+      objectReference: {fileID: 1355056313}
+    - target: {fileID: 8847860348373117551, guid: 883ba144967f6f441a5b7eb9a3eb0254, type: 3}
       propertyPath: newMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 0858f49247fba6d498dc49b2d42b436c, type: 2}
@@ -10545,6 +10561,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 83106800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1355056313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5605168206779814901, guid: b969d053d01d0a04c86f40a69de83c2c, type: 3}
+  m_PrefabInstance: {fileID: 1276803295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7470066c6a16c7b4fbc4818ab58081f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401572412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6205449973468553002, guid: 44a8e9ce189cbf24fa01748716a0daac, type: 3}
@@ -18545,6 +18572,10 @@ PrefabInstance:
       propertyPath: equipText
       value: 
       objectReference: {fileID: 1673636328}
+    - target: {fileID: 5225648872416115729, guid: e2c48881153f6ec4bb5b217eade2cf78, type: 3}
+      propertyPath: taskListUI
+      value: 
+      objectReference: {fileID: 1355056313}
     - target: {fileID: 5616461659117298628, guid: e2c48881153f6ec4bb5b217eade2cf78, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.56
