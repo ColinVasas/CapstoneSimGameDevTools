@@ -59,7 +59,8 @@ public class pickUpController : MonoBehaviour
                          }
                          // wafer
                          else if (PickupObject(hit.transform.gameObject) && (heldObj.name == "wafer" || hit.transform.CompareTag("wafer") || 
-                         hit.transform.CompareTag("coldWafer") || heldObj.name == "wafer (2)" || heldObj.name == "WaferPrefabTesting"))
+                         hit.transform.CompareTag("coldWafer") || heldObj.name == "wafer (2)" || heldObj.name == "WaferPrefabTesting"
+                         || heldObj.name == "wafer 1"))
                          {
                               StopMessage();
                               messageCoroutine = StartCoroutine(DisplayTextMessage("This is a wafer"));
