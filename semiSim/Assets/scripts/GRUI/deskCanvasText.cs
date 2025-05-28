@@ -9,6 +9,7 @@ public class deskCanvasText : MonoBehaviour
     public float displayDuration = 4.0f;
     public float delayBetweenTexts = 0.5f;
 
+    // messages welcoming the user to the clean room and instructing them on the first item to equip
     private string[] messages = new string[]
     {
         "Welcome",
