@@ -165,6 +165,12 @@ Once it opens, select the “Scenes” folder from the lower left side list. If 
 
 Then at the top of the application, press the play button. 
 
+# How to Continue Project Development
+
+Here is a list of important information you need to know if you wish to continue development of this project:
+- The most up-to-date branch is NOT the main branch. "mainThatWorked" is the most up-to-date branch.
+- The most up-to-date scene for the Yellow Room and Wet Etching Room is called "0 Final combined Room".
+
 # Team Members / Contact Information
 
 If you have any questions about the project or code, please feel free to contact us at any of the emails below.
