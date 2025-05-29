@@ -144,7 +144,7 @@ You will need to download and install Unity and this Project.
 ![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi6.jpg) 
 Figure 6; screenshot of the top of the project 
 
-Before downloading, make sure that the main branch is selected at the top of this project.
+Before downloading, make sure that the "mainThatWorked" branch is selected at the top of this project.
 
 **The friendliest way to download this project is to click on the “Code” button at the top of this project, then select the download .zip option at the bottom of the drop down.** The download will then start automatically and be saved in your computer’s default downloads folder. 
 
