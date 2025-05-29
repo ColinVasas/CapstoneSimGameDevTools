@@ -5,6 +5,7 @@ using TMPro;
 
 public class equipManager : MonoBehaviour
 {
+    // these GameObjects are the equippable objects
     public GameObject hairNet;
     public GameObject faceMask;
     public GameObject cleanHood;
@@ -14,13 +15,15 @@ public class equipManager : MonoBehaviour
     public GameObject gloves;
 
     public GameObject trigger;
+
+    // some variables for text display
     public TextMeshProUGUI equipText; // Single TMP UI element for all messages
     public float fadeDuration = 0.5f;
     public float displayDuration = 3.0f;
-
     private Coroutine equipMessageCoroutine;
     private int currentMessageIndex = 0;
 
+    // messages that tell the user what order to equip objects
     private string[] equipMessages = new string[]
     {
         "Find and put on\nthe face mask",
@@ -41,6 +44,7 @@ public class equipManager : MonoBehaviour
         textColor.a = 0f;
         equipText.color = textColor;
 
+        // set up the equip tag(s)
         hairNet.tag = "equip";
         faceMask.tag = "Untagged";
         cleanHood.tag = "Untagged";
@@ -61,6 +65,7 @@ public class equipManager : MonoBehaviour
         taskListUI.AddTask("Put on Gloves");
     }
 
+    // this function was for testing purposes only
     public void textDis()
     {
         StartCoroutine(DisplayTextMessage("hello this is my message"));
@@ -68,7 +73,7 @@ public class equipManager : MonoBehaviour
 
     public void HandleEquip(GameObject equippedObject)
     {
-
+        // only equip the item if it's in the correct order
         if (!equippedObject.CompareTag("equip")) return;
 
         switch (equippedObject)
@@ -116,6 +121,7 @@ public class equipManager : MonoBehaviour
     {
         current.SetActive(false);
 
+        // manage equip tag
         if (next != null) next.tag = "equip";
 
         //if (currentMessageIndex < equipMessages.Length)

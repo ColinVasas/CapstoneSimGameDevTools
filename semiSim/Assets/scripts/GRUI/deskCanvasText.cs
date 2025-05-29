@@ -9,13 +9,14 @@ public class deskCanvasText : MonoBehaviour
     public float displayDuration = 4.0f;
     public float delayBetweenTexts = 0.5f;
 
+    // messages welcoming the user to the clean room and instructing them on the first item to equip
     private string[] messages = new string[]
     {
         "Welcome",
         "This is a\nsemiconductor clean room",
         "To begin, we will\nhave you change\ninto a gown",
         "This is a necessary step\nas cleanrooms are\nsensitive to particles",
-        "Start by finding a hairnet\non the counter to the right",
+        "Start by finding a hairnet\non the counter to the left",
         "Once you find it, left click\nto pick it up or put it down"
     };
 

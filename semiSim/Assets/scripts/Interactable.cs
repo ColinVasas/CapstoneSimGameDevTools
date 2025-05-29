@@ -38,6 +38,7 @@ public class Interactable : MonoBehaviour
 
     public float delayBetweenTexts = 0.5f;
 
+    // intro messages welcoming the user to the yellow room and instructing them on how to begin
     private string[] oneMSG = new string[]
     {
         "",
@@ -45,6 +46,8 @@ public class Interactable : MonoBehaviour
         "Go to the spincoater,\nthen press the red button (with E)."
     };
 
+    // phase1 through phase10 are instructions for how to proceed through the yellow room
+    // they are activated through interactions with the spincoater
     private string[] phase1 = new string[]
     {
         "Place a chuck (large black plate)\nin the spincoater.",
@@ -52,7 +55,6 @@ public class Interactable : MonoBehaviour
     };
     private string[] phase2 = new string[]
     {
-        // "Grab the spray gun from\nthe table to the right and\nclean a wafer (small black plate).\nThen place the wafer in\nthe spincoater.",
         "Now let's work with the wafer.",
         "You'll need to clean\nthe wafer first.",
         "Grab the spray gun and\nuse it to clean the wafer.",
@@ -103,8 +105,10 @@ public class Interactable : MonoBehaviour
         "You're done with the yellow room!",
         "Head to the door to reach the\nwet bench room."
     };
+    // cur_step is used to manage the phase text messages
     private int cur_step = 0;
 
+    // SpinCoaterState controls which step in the yellow room procedures the player is in
     public enum SpinCoaterState
     {
         OpenSpinCoater,
@@ -124,6 +128,8 @@ public class Interactable : MonoBehaviour
     public SpinCoaterState currentState = SpinCoaterState.OpenSpinCoater;
     private Coroutine introCoroutine;
 
+    // this was an experimental function for the intro text sequence
+    // canvasText.cs kept making the first message disappear
     IEnumerator StartUp(int i)
     {
         yield return new WaitForSeconds(i);
@@ -148,6 +154,8 @@ public class Interactable : MonoBehaviour
         equipText.color = c;
     }
 
+    // DisplayTextSequence and DisplayIntroSequence are basically the same function
+    // They used to be different but aren't anymore.
     private IEnumerator DisplayTextSequence(string[] message_list)
     {
         foreach (string message in message_list)
@@ -156,7 +164,6 @@ public class Interactable : MonoBehaviour
             // yield return new WaitForSeconds(delayBetweenTexts);
         }
     }
-
     private IEnumerator DisplayIntroSequence(string[] message_list)
     {
         foreach (string message in message_list)
@@ -409,7 +416,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase7));
-                    taskListUI?.CompleteTask("Use hotplate and return wafer");
+                    //taskListUI?.CompleteTask("Use hotplate/return wafer");
                     cur_step++;
                 }
 
@@ -443,7 +450,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase8));
-                    taskListUI?.CompleteTask("Apply PI");
+                    taskListUI?.CompleteTask("Use hotplate/return wafer");
                     cur_step++;
                 }
 
@@ -469,7 +476,7 @@ public class Interactable : MonoBehaviour
                         }
                         // queue up current message
                         equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase9));
-                        taskListUI?.CompleteTask("Final spincoater run");
+                        taskListUI?.CompleteTask("Apply PI");
                         cur_step++;
                     }
 
@@ -493,7 +500,7 @@ public class Interactable : MonoBehaviour
                     }
                     // queue up current message
                     equipMessageCoroutine = StartCoroutine(DisplayTextSequence(phase10));
-                    //taskListUI?.CompleteTask("Open spincoater lid");
+                    taskListUI?.CompleteTask("Final spincoater run");
                     cur_step++;
                 }
 
@@ -510,7 +517,7 @@ public class Interactable : MonoBehaviour
 
         // stopIntro = true;
 
-        // temporarily commenting this out before pushing since it's not working yet
+        // ended up not using all this
 
         //// kill process of any current message
         //if (equipMessageCoroutine != null)
