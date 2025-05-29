@@ -144,7 +144,7 @@ You will need to download and install Unity and this Project.
 ![alt text](https://github.com/ColinVasas/CapstoneSimGameDevTools/blob/yellowRoomMerge/images/semi6.jpg) 
 Figure 6; screenshot of the top of the project 
 
-Before downloading, make sure that the main branch is selected at the top of this project.
+Before downloading, make sure that the "mainThatWorked" branch is selected at the top of this project.
 
 **The friendliest way to download this project is to click on the “Code” button at the top of this project, then select the download .zip option at the bottom of the drop down.** The download will then start automatically and be saved in your computer’s default downloads folder. 
 
@@ -164,6 +164,12 @@ Then, back in Unity Hub, once you make sure your Unity [editor versions](https:/
 Once it opens, select the “Scenes” folder from the lower left side list. If you are running it on a desktop, select the “gowningRoomDesk” scene. If on VR, select the “gowningRoomVr” scene.
 
 Then at the top of the application, press the play button. 
+
+# How to Continue Project Development
+
+Here is a list of important information you need to know if you wish to continue development of this project:
+- The most up-to-date branch is NOT the main branch. "mainThatWorked" is the most up-to-date branch.
+- The most up-to-date scene for the Yellow Room and Wet Etching Room is called "0 Final combined Room".
 
 # Team Members / Contact Information
 
