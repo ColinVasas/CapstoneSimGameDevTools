@@ -27,10 +27,10 @@ public class WaferUI : MonoBehaviour
     {
         return material switch
         {
-            EtchingMaterial.Silicon => $"Use HF solution. 5 Water to 1 KOH Etch ~{ChemicalEtchMaterial.SiliconEtchTime:F1}s",
-            EtchingMaterial.SiliconDioxide => $"Use buffered HF. Etch ~{ChemicalEtchMaterial.SiliconDioxideEtchTime:F1}s",
-            EtchingMaterial.Aluminim => $"Use Phosphoric Acid. 3 Water to 1 HCL Etch ~{ChemicalEtchMaterial.AluminimEtchTime:F1}s",
-            EtchingMaterial.Photoresist => $"Use Acetone. 1 Water to 1 KOH Etch ~{ChemicalEtchMaterial.PhotoresistEtchTime:F1}s",
+            EtchingMaterial.Silicon => $"Use HF solution. \n5 Water to 1 KOH ",
+            EtchingMaterial.SiliconDioxide => $"Use buffered HF. \n",
+            EtchingMaterial.Aluminim => $"Use Phosphoric Acid.\n 3 Water to 1 HCL Etch",
+            EtchingMaterial.Photoresist => $"Use Acetone.\n 1 Water to 1 KOH Etch",
             _ => "Unknown instructions."
         };
     }
